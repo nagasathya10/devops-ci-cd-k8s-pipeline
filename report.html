@@ -6,46 +6,46 @@
 <style>
   @page {
     size: A4;
-    margin: 20mm 18mm 20mm 18mm;
+    margin: 18mm 16mm 18mm 16mm;
   }
   * {
     box-sizing: border-box;
   }
   body {
     font-family: "Times New Roman", Times, Georgia, serif;
-    font-size: 11pt;
-    line-height: 1.5;
+    font-size: 10.5pt;
+    line-height: 1.45;
     color: #111;
     margin: 0;
     padding: 0;
   }
-  .page {
-    page-break-before: always;
+  .page-box {
+    page-break-after: always;
+    break-after: page;
     clear: both;
-    position: relative;
-    min-height: 960px;
   }
-  .page:first-child {
-    page-break-before: avoid;
+  .page-box:last-child {
+    page-break-after: avoid;
+    break-after: avoid;
   }
-  
+
   /* Ramaiah Header Banner */
   .inst-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid #8b1538;
-    padding-bottom: 12px;
-    margin-bottom: 25px;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
   }
   .logo-box {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
   .logo-crest {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     background: #8b1538;
     border-radius: 50%;
     display: flex;
@@ -53,64 +53,64 @@
     justify-content: center;
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     font-family: sans-serif;
   }
   .inst-name {
     font-family: sans-serif;
-    font-size: 13pt;
+    font-size: 12pt;
     font-weight: 800;
     color: #111;
     letter-spacing: 0.5px;
   }
   .inst-sub {
     font-family: sans-serif;
-    font-size: 8pt;
+    font-size: 7.5pt;
     color: #555;
   }
   .dept-header {
     font-family: sans-serif;
-    font-size: 9.5pt;
+    font-size: 9pt;
     font-weight: 700;
     color: #1a2a5a;
     text-align: right;
-    line-height: 1.3;
-    max-width: 380px;
+    line-height: 1.25;
+    max-width: 360px;
   }
 
-  /* Typography */
+  /* Titles */
   h1.report-title {
     font-family: sans-serif;
-    font-size: 18pt;
+    font-size: 16pt;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     text-align: center;
-    margin: 30px 0 15px 0;
+    margin: 30px 0 10px 0;
   }
   h2.comp-title {
-    font-size: 14pt;
+    font-size: 13.5pt;
     font-weight: bold;
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     color: #111;
   }
   h3.section-title {
-    font-size: 12pt;
-    font-weight: bold;
-    margin-top: 18px;
-    margin-bottom: 8px;
-    color: #111;
-  }
-  h4.step-title {
-    font-size: 11pt;
+    font-size: 11.5pt;
     font-weight: bold;
     margin-top: 14px;
     margin-bottom: 6px;
     color: #111;
   }
+  h4.step-title {
+    font-size: 10.5pt;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    color: #111;
+  }
   p {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     text-align: justify;
   }
 
@@ -118,105 +118,66 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 12px 0 18px 0;
-    font-size: 9.5pt;
+    margin: 8px 0 14px 0;
+    font-size: 9pt;
   }
   th, td {
     border: 1px solid #333;
-    padding: 7px 10px;
+    padding: 5px 8px;
     vertical-align: top;
   }
   th {
     background-color: #f2f2f2;
     font-weight: bold;
   }
-  
+
   /* Code blocks */
   .code-box {
-    border: 1px solid #444;
+    border: 1px solid #555;
     background-color: #fafafa;
-    padding: 8px 12px;
-    margin: 10px 0 14px 0;
+    padding: 6px 9px;
+    margin: 6px 0 10px 0;
     font-family: "Courier New", Courier, monospace;
-    font-size: 8.5pt;
-    line-height: 1.35;
+    font-size: 7.8pt;
+    line-height: 1.28;
     overflow-x: auto;
     white-space: pre;
   }
   .line-num {
     color: #888;
-    margin-right: 10px;
+    margin-right: 6px;
     user-select: none;
   }
   .kw { color: #0000aa; font-weight: bold; }
   .str { color: #aa0000; }
   .com { color: #008800; font-style: italic; }
   .fn { color: #770088; }
-  
-  /* Terminal / Result cards */
-  .terminal-card {
-    background: #181c24;
-    color: #d1d5db;
-    border-radius: 6px;
-    margin: 14px 0 6px 0;
-    padding: 10px 14px;
-    font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
-    font-size: 8.5pt;
-    line-height: 1.4;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-  }
-  .term-header {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding-bottom: 6px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid #2e3440;
-  }
-  .term-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    display: inline-block;
-  }
-  .term-title {
-    color: #9ca3af;
-    font-size: 7.5pt;
-    margin-left: 8px;
-    font-family: sans-serif;
-  }
-  .term-prompt { color: #60a5fa; font-weight: bold; }
-  .term-cmd { color: #f9fafb; }
-  .term-ok { color: #34d399; font-weight: bold; }
-  .term-warn { color: #fbbf24; }
-  .term-err { color: #f87171; font-weight: bold; }
-  .term-info { color: #38bdf8; }
 
+  /* Figures */
+  .figure-box {
+    margin: 8px 0 10px 0;
+    text-align: center;
+  }
+  .figure-img {
+    width: 100%;
+    max-width: 620px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+  }
   .figure-caption {
-    font-size: 9pt;
+    font-size: 8.5pt;
     color: #222;
     text-align: center;
-    margin: 4px 0 16px 0;
-  }
-  
-  .page-num {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 10pt;
-    color: #444;
+    margin-top: 4px;
   }
 
-  /* List */
   ul {
-    margin-top: 4px;
-    margin-bottom: 10px;
-    padding-left: 20px;
+    margin-top: 3px;
+    margin-bottom: 6px;
+    padding-left: 18px;
   }
   li {
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
 </style>
 </head>
@@ -225,7 +186,7 @@
 <!-- ========================================================================= -->
 <!-- PAGE 1: TITLE PAGE -->
 <!-- ========================================================================= -->
-<div class="page" style="text-align: center;">
+<div class="page-box" style="text-align: center;">
   <div class="inst-header" style="text-align: left;">
     <div class="logo-box">
       <div class="logo-crest">R</div>
@@ -235,49 +196,49 @@
       </div>
     </div>
     <div class="dept-header">
-      Department of CSE (Artificial Intelligence & Machine Learning) and CSE (Cyber Security)
+      Department of CSE (Artificial Intelligence &amp; Machine Learning) and CSE (Cyber Security)
     </div>
   </div>
 
-  <div style="margin-top: 55px;">
+  <div style="padding-top: 25px;">
     <h1 class="report-title">SELF LEARNING ACTIVITY REPORT</h1>
-    <p style="text-align: center; font-size: 11pt; margin-top: 15px; color: #333;">
+    <p style="text-align: center; font-size: 10.5pt; margin-top: 8px; color: #333;">
       Submitted in partial fulfilment of the Requirements for<br>
       the Academics of 5<sup>th</sup> Semester, B.E in CSE (Cyber Security)
     </p>
 
-    <h2 style="font-family: sans-serif; font-size: 18pt; font-weight: bold; margin-top: 50px; letter-spacing: 1px;">
+    <h2 style="font-family: sans-serif; font-size: 17pt; font-weight: bold; margin-top: 35px; letter-spacing: 1px;">
       DEVOPS
     </h2>
-    <h3 style="font-family: sans-serif; font-size: 14pt; font-weight: bold; color: #111; margin-top: 5px;">
+    <h3 style="font-family: sans-serif; font-size: 13pt; font-weight: bold; color: #111; margin-top: 4px;">
       24CYAEC59
     </h3>
 
-    <p style="text-align: center; font-size: 11pt; margin-top: 30px;">In</p>
-    <p style="text-align: center; font-family: sans-serif; font-weight: bold; font-size: 12pt; margin-top: 5px;">
+    <p style="text-align: center; font-size: 10.5pt; margin-top: 20px;">In</p>
+    <p style="text-align: center; font-family: sans-serif; font-weight: bold; font-size: 11.5pt; margin-top: 4px;">
       Dept. of CSE (CYBER SECURITY)
     </p>
 
-    <p style="text-align: center; font-size: 11pt; margin-top: 45px;">By</p>
-    <p style="text-align: center; font-family: sans-serif; font-weight: bold; font-size: 13pt; margin-top: 5px;">
+    <p style="text-align: center; font-size: 10.5pt; margin-top: 30px;">By</p>
+    <p style="text-align: center; font-family: sans-serif; font-weight: bold; font-size: 12.5pt; margin-top: 4px;">
       Nagasathya V<br>
-      <span style="font-size: 12pt;">USN: 1MS24CY041</span>
+      <span style="font-size: 11.5pt;">USN: 1MS24CY041</span>
     </p>
 
-    <div style="margin-top: 50px;">
-      <p style="text-align: center; font-size: 10pt; color: #444; margin-bottom: 4px;">Under the guidance of</p>
-      <p style="text-align: center; font-weight: bold; font-size: 12pt; margin-bottom: 2px;">Mr. Prashanth Reddy C</p>
-      <p style="text-align: center; font-size: 10pt; color: #333; margin-bottom: 2px;">Senior Lecturer</p>
-      <p style="text-align: center; font-size: 9.5pt; color: #555;">Department of CSE (AI & ML) and CSE (Cyber Security)</p>
+    <div style="margin-top: 35px;">
+      <p style="text-align: center; font-size: 9.5pt; color: #444; margin-bottom: 3px;">Under the guidance of</p>
+      <p style="text-align: center; font-weight: bold; font-size: 11.5pt; margin-bottom: 2px;">Mr. Prashanth Reddy C</p>
+      <p style="text-align: center; font-size: 9.5pt; color: #333; margin-bottom: 2px;">Senior Lecturer</p>
+      <p style="text-align: center; font-size: 9pt; color: #555;">Department of CSE (AI &amp; ML) and CSE (Cyber Security)</p>
     </div>
 
-    <div style="margin-top: 60px;">
-      <p style="text-align: center; font-family: sans-serif; font-weight: bold; font-size: 13pt; margin-bottom: 3px;">
+    <div style="margin-top: 40px;">
+      <p style="text-align: center; font-family: sans-serif; font-weight: bold; font-size: 12.5pt; margin-bottom: 2px;">
         M. S. Ramaiah Institute of Technology
       </p>
-      <p style="text-align: center; font-size: 9.5pt; color: #444; margin-bottom: 2px;">(Autonomous Institute Affiliated to VTU)</p>
-      <p style="text-align: center; font-size: 9.5pt; color: #444; margin-bottom: 2px;">MSR Nagar, MSRIT Post</p>
-      <p style="text-align: center; font-size: 9.5pt; color: #444;">Bangalore-560054, Karnataka, India</p>
+      <p style="text-align: center; font-size: 9pt; color: #444; margin-bottom: 1px;">(Autonomous Institute Affiliated to VTU)</p>
+      <p style="text-align: center; font-size: 9pt; color: #444; margin-bottom: 1px;">MSR Nagar, MSRIT Post</p>
+      <p style="text-align: center; font-size: 9pt; color: #444;">Bangalore-560054, Karnataka, India</p>
     </div>
   </div>
 </div>
@@ -285,7 +246,7 @@
 <!-- ========================================================================= -->
 <!-- PAGE 2: CERTIFICATE -->
 <!-- ========================================================================= -->
-<div class="page">
+<div class="page-box">
   <div class="inst-header">
     <div class="logo-box">
       <div class="logo-crest">R</div>
@@ -295,26 +256,26 @@
       </div>
     </div>
     <div class="dept-header">
-      Department of CSE (Artificial Intelligence & Machine Learning) and CSE (Cyber Security)
+      Department of CSE (Artificial Intelligence &amp; Machine Learning) and CSE (Cyber Security)
     </div>
   </div>
 
-  <h2 style="text-align: center; font-size: 16pt; font-weight: bold; margin-top: 70px; margin-bottom: 50px;">
+  <h2 style="text-align: center; font-size: 15pt; font-weight: bold; margin-top: 40px; margin-bottom: 30px;">
     Certificate
   </h2>
 
-  <p style="font-size: 12pt; line-height: 2; text-align: justify; margin: 0 15px 80px 15px;">
-    This is to certify that the work carried out is a bonafide record of the project based learning activity work on the DevOps course done by <strong>Nagasathya V (1MS24CY041)</strong> under my supervision and guidance, in partial fulfilment of the requirements for the award of the Bachelor of Engineering in Computer Science & Engineering (Cyber Security) from Ramaiah Institute of Technology, Bangalore for the academic year 2026-2027.
+  <p style="font-size: 11.5pt; line-height: 2; text-align: justify; margin: 0 10px 40px 10px;">
+    This is to certify that the work carried out is a bonafide record of the project based learning activity work on the DevOps course done by <strong>Nagasathya V (1MS24CY041)</strong> under my supervision and guidance, in partial fulfilment of the requirements for the award of the Bachelor of Engineering in Computer Science &amp; Engineering (Cyber Security) from Ramaiah Institute of Technology, Bangalore for the academic year 2026-2027.
   </p>
 
-  <div style="display: flex; justify-content: space-between; margin-top: 140px; padding: 0 40px;">
+  <div style="display: flex; justify-content: space-between; margin-top: 90px; padding: 0 35px;">
     <div style="text-align: center;">
-      <div style="width: 180px; border-bottom: 1px dotted #111; margin-bottom: 8px;"></div>
-      <p style="font-size: 11pt; font-weight: bold;">Candidate Sign</p>
+      <div style="width: 170px; border-bottom: 1px dotted #111; margin-bottom: 6px;"></div>
+      <p style="font-size: 10.5pt; font-weight: bold;">Candidate Sign</p>
     </div>
     <div style="text-align: center;">
-      <div style="width: 180px; border-bottom: 1px dotted #111; margin-bottom: 8px;"></div>
-      <p style="font-size: 11pt; font-weight: bold;">Faculty Sign</p>
+      <div style="width: 170px; border-bottom: 1px dotted #111; margin-bottom: 6px;"></div>
+      <p style="font-size: 10.5pt; font-weight: bold;">Faculty Sign</p>
     </div>
   </div>
 </div>
@@ -322,12 +283,12 @@
 <!-- ========================================================================= -->
 <!-- PAGE 3: COMPONENTS LIST -->
 <!-- ========================================================================= -->
-<div class="page">
-  <h2 style="text-align: center; font-size: 13pt; font-weight: bold; margin-bottom: 25px; letter-spacing: 0.5px;">
+<div class="page-box">
+  <h2 style="text-align: center; font-size: 12.5pt; font-weight: bold; margin-bottom: 16px; letter-spacing: 0.5px;">
     LIST OF PROJECT BASED LEARNING COMPONENTS
   </h2>
 
-  <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: bold; font-size: 10pt;">
+  <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: bold; font-size: 9pt;">
     <div>COURSE NAME: DevOps<br>CREDITS: 1:0:0<br>MAX. MARKS: 20</div>
     <div style="text-align: right;">COURSE CODE: 24CYAEC59<br>CONTACT HOURS: 15L</div>
   </div>
@@ -344,7 +305,7 @@
       <tr>
         <td style="text-align: center; font-weight: bold;">1</td>
         <td>
-          <strong>CI/CD Pipeline using Git, Maven/Gradle/Build tools and Jenkins.</strong> Set up a version-controlled build pipeline for a sample application. Create a Git repository, use feature branching and merging, configure an automated build with dependency management, integrate the project into a Jenkins job that pulls from Source Code Management (SCM), triggers automatically on commit, executes the build, performs a post-build action, and add one CI-related enhancement (automated tests, build versioning, or GitHub Actions).<br>
+          <strong>CI/CD Pipeline using Git, Build tools and Jenkins.</strong> Set up a version-controlled build pipeline for a sample application. Create a Git repository, use feature branching and merging, configure an automated build with dependency management, integrate the project into a Jenkins job that pulls from Source Code Management (SCM), triggers automatically on commit, executes the build, performs a post-build action, and add one CI-related enhancement (automated tests, build versioning, or GitHub Actions).<br>
           <em>Covers: Unit 1 (DevOps culture/pipeline), Unit 2 (Git, Build tools), Unit 3 (Jenkins CI). Maps to CO1, CO2, CO3.</em>
         </td>
         <td style="text-align: center; font-weight: bold; vertical-align: middle;">10</td>
@@ -359,23 +320,21 @@
       </tr>
     </tbody>
   </table>
-
-  <div class="page-num">3</div>
 </div>
 
 <!-- ========================================================================= -->
 <!-- PAGE 4: ASSESSMENT RUBRICS -->
 <!-- ========================================================================= -->
-<div class="page">
-  <h2 style="font-size: 14pt; font-weight: bold; margin-bottom: 15px;">Assessment Rubrics</h2>
-  <p>Evaluation for <strong>each</strong> 10-mark component will be based on the following rubrics.</p>
+<div class="page-box">
+  <h2 style="font-size: 13pt; font-weight: bold; margin-bottom: 10px;">Assessment Rubrics</h2>
+  <p style="font-size: 9.5pt;">Evaluation for <strong>each</strong> 10-mark component will be based on the following rubrics.</p>
 
   <table>
     <thead>
       <tr>
-        <th style="width: 22%;">Criteria</th>
-        <th style="width: 28%;">2 — Good</th>
-        <th style="width: 28%;">1 — Average</th>
+        <th style="width: 20%;">Criteria</th>
+        <th style="width: 29%;">2 — Good</th>
+        <th style="width: 29%;">1 — Average</th>
         <th style="width: 22%;">0 — Poor</th>
       </tr>
     </thead>
@@ -399,28 +358,26 @@
         <td>No enhancement attempted</td>
       </tr>
       <tr>
-        <td><strong>Analysis & Interpretation</strong> (2 marks)</td>
+        <td><strong>Analysis &amp; Interpretation</strong> (2 marks)</td>
         <td>Explains build logs, scaling behaviour, or enhancement outcomes in own words; interprets output unprompted</td>
         <td>Describes what happened but not why, or needs prompting to interpret output</td>
         <td>No interpretation offered; treats commands as a checklist</td>
       </tr>
       <tr>
-        <td><strong>Documentation & Presentation</strong> (2 marks)</td>
+        <td><strong>Documentation &amp; Presentation</strong> (2 marks)</td>
         <td>Report fully personalized and confidently walks through the pipeline unprompted</td>
         <td>Mostly complete report or needs guidance/prompting during the demo</td>
         <td>Unedited template, mismatched screenshots, or cannot navigate own setup</td>
       </tr>
     </tbody>
   </table>
-
-  <div class="page-num">4</div>
 </div>
 
 <!-- ========================================================================= -->
 <!-- PAGE 5: MARKS AWARDED -->
 <!-- ========================================================================= -->
-<div class="page">
-  <h2 style="font-size: 15pt; font-weight: bold; margin-bottom: 25px;">Marks Awarded</h2>
+<div class="page-box">
+  <h2 style="font-size: 14pt; font-weight: bold; margin-bottom: 16px;">Marks Awarded</h2>
 
   <table>
     <thead>
@@ -429,34 +386,32 @@
         <th style="width: 18%; text-align: center;">Concept Understanding (2)</th>
         <th style="width: 18%; text-align: center;">Core Implementation (2)</th>
         <th style="width: 18%; text-align: center;">Enhancement (2)</th>
-        <th style="width: 18%; text-align: center;">Analysis & Interpretation (2)</th>
-        <th style="width: 18%; text-align: center;">Documentation & Presentation (2)</th>
+        <th style="width: 18%; text-align: center;">Analysis &amp; Interpretation (2)</th>
+        <th style="width: 18%; text-align: center;">Documentation &amp; Presentation (2)</th>
         <th style="width: 10%; text-align: center;">Total</th>
       </tr>
     </thead>
     <tbody>
-      <tr style="height: 45px;">
+      <tr style="height: 38px;">
         <td style="text-align: center; font-weight: bold; vertical-align: middle;">1</td>
         <td></td><td></td><td></td><td></td><td></td><td></td>
       </tr>
-      <tr style="height: 45px;">
+      <tr style="height: 38px;">
         <td style="text-align: center; font-weight: bold; vertical-align: middle;">2</td>
         <td></td><td></td><td></td><td></td><td></td><td></td>
       </tr>
-      <tr style="height: 38px; font-weight: bold; background-color: #fafafa;">
+      <tr style="height: 34px; font-weight: bold; background-color: #fafafa;">
         <td colspan="6" style="text-align: center; vertical-align: middle;">TOTAL MARKS</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-
-  <div class="page-num">5</div>
 </div>
 
 <!-- ========================================================================= -->
-<!-- PAGE 6: COMPONENT 1 INTRODUCTION -->
+<!-- PAGE 6: COMPONENT 1 INTRO & ENVIRONMENT -->
 <!-- ========================================================================= -->
-<div class="page">
+<div class="page-box">
   <h2 class="comp-title">Component 1: CI/CD Pipeline using Git, Build Tools and Jenkins</h2>
 
   <h3 class="section-title">Abstract</h3>
@@ -494,18 +449,16 @@
 <span class="line-num"> 3</span>git commit -m <span class="str">"feat(core): initial REST API implementation and base build configuration"</span>
 <span class="line-num"> 4</span>git checkout -b feature/todo-endpoints
 <span class="line-num"> 5</span>git add app/test_app.py Jenkinsfile .github/ Dockerfile ansible/ k8s/ scripts/
-<span class="line-num"> 6</span>git commit -m <span class="str">"feat(pipeline): add automated test suite, Jenkinsfile, GitHub Actions CI, Ansible role, and K8s manifests"</span>
+<span class="line-num"> 6</span>git commit -m <span class="str">"feat(pipeline): add automated test suite, Jenkinsfile, CI, Ansible role, K8s manifests"</span>
 <span class="line-num"> 7</span>git checkout main
-<span class="line-num"> 8</span>git merge --no-ff feature/todo-endpoints -m <span class="str">"Merge branch 'feature/todo-endpoints' into main: complete CI/CD pipeline and deployment infrastructure"</span>
+<span class="line-num"> 8</span>git merge --no-ff feature/todo-endpoints -m <span class="str">"Merge branch 'feature/todo-endpoints' into main"</span>
 <span class="line-num"> 9</span>git push -u origin main &amp;&amp; git push -u origin feature/todo-endpoints</div>
-
-  <div class="page-num">6</div>
 </div>
 
 <!-- ========================================================================= -->
-<!-- PAGE 7: REST API SOURCE CODE -->
+<!-- PAGE 7: REST API SOURCE CODE & BUILD -->
 <!-- ========================================================================= -->
-<div class="page">
+<div class="page-box">
   <p>The REST API implementation in <code>app/app.py</code> added on the feature branch:</p>
 
   <div class="code-box"><span class="line-num"> 1</span><span class="kw">import</span> os, time
@@ -514,141 +467,63 @@
 <span class="line-num"> 4</span>
 <span class="line-num"> 5</span>app = Flask(__name__)
 <span class="line-num"> 6</span>START_TIME = time.time()
-<span class="line-num"> 7</span>REQUEST_COUNT = 0
-<span class="line-num"> 8</span>
-<span class="line-num"> 9</span><span class="com"># In-memory store: no database needed for this assignment</span>
-<span class="line-num">10</span>todos = [
-<span class="line-num">11</span>    {<span class="str">"id"</span>: 1, <span class="str">"title"</span>: <span class="str">"Set up CI/CD Pipeline"</span>, <span class="str">"completed"</span>: <span class="kw">True</span>},
-<span class="line-num">12</span>    {<span class="str">"id"</span>: 2, <span class="str">"title"</span>: <span class="str">"Deploy to Kubernetes"</span>, <span class="str">"completed"</span>: <span class="kw">False</span>}
-<span class="line-num">13</span>]
-<span class="line-num">14</span>
-<span class="line-num">15</span><span class="kw">@app.before_request</span>
-<span class="line-num">16</span><span class="kw">def</span> <span class="fn">count_requests</span>():
-<span class="line-num">17</span>    <span class="kw">global</span> REQUEST_COUNT
-<span class="line-num">18</span>    REQUEST_COUNT += 1
+<span class="line-num"> 7</span>todos = [
+<span class="line-num"> 8</span>    {<span class="str">"id"</span>: 1, <span class="str">"title"</span>: <span class="str">"Set up CI/CD Pipeline"</span>, <span class="str">"completed"</span>: <span class="kw">True</span>},
+<span class="line-num"> 9</span>    {<span class="str">"id"</span>: 2, <span class="str">"title"</span>: <span class="str">"Deploy to Kubernetes"</span>, <span class="str">"completed"</span>: <span class="kw">False</span>}
+<span class="line-num">10</span>]
+<span class="line-num">11</span>
+<span class="line-num">12</span><span class="kw">@app.route</span>(<span class="str">"/"</span>, methods=[<span class="str">"GET"</span>])
+<span class="line-num">13</span><span class="kw">def</span> <span class="fn">root</span>():
+<span class="line-num">14</span>    <span class="kw">return</span> jsonify({<span class="str">"service"</span>: <span class="str">"DevOps Task API"</span>, <span class="str">"version"</span>: os.getenv(<span class="str">"APP_VERSION"</span>, <span class="str">"1.0.0"</span>), <span class="str">"status"</span>: <span class="str">"healthy"</span>}), 200
+<span class="line-num">15</span>
+<span class="line-num">16</span><span class="kw">@app.route</span>(<span class="str">"/todos"</span>, methods=[<span class="str">"GET"</span>])
+<span class="line-num">17</span><span class="kw">def</span> <span class="fn">get_todos</span>():
+<span class="line-num">18</span>    <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">True</span>, <span class="str">"count"</span>: len(todos), <span class="str">"data"</span>: todos}), 200
 <span class="line-num">19</span>
-<span class="line-num">20</span><span class="kw">@app.route</span>(<span class="str">"/"</span>, methods=[<span class="str">"GET"</span>])
-<span class="line-num">21</span><span class="kw">def</span> <span class="fn">root</span>():
-<span class="line-num">22</span>    <span class="kw">return</span> jsonify({
-<span class="line-num">23</span>        <span class="str">"service"</span>: <span class="str">"DevOps Task Management REST API"</span>,
-<span class="line-num">24</span>        <span class="str">"version"</span>: os.getenv(<span class="str">"APP_VERSION"</span>, <span class="str">"1.0.0"</span>),
-<span class="line-num">25</span>        <span class="str">"status"</span>: <span class="str">"healthy"</span>,
-<span class="line-num">26</span>        <span class="str">"endpoints"</span>: [<span class="str">"GET /"</span>, <span class="str">"GET /todos"</span>, <span class="str">"POST /todos"</span>, <span class="str">"GET /health"</span>, <span class="str">"GET /metrics"</span>]
-<span class="line-num">27</span>    }), 200
-<span class="line-num">28</span>
-<span class="line-num">29</span><span class="kw">@app.route</span>(<span class="str">"/todos"</span>, methods=[<span class="str">"GET"</span>])
-<span class="line-num">30</span><span class="kw">def</span> <span class="fn">get_todos</span>():
-<span class="line-num">31</span>    <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">True</span>, <span class="str">"count"</span>: len(todos), <span class="str">"data"</span>: todos}), 200
-<span class="line-num">32</span>
-<span class="line-num">33</span><span class="kw">@app.route</span>(<span class="str">"/todos/&lt;int:todo_id&gt;"</span>, methods=[<span class="str">"GET"</span>])
-<span class="line-num">34</span><span class="kw">def</span> <span class="fn">get_todo</span>(todo_id):
-<span class="line-num">35</span>    todo = next((item <span class="kw">for</span> item <span class="kw">in</span> todos <span class="kw">if</span> item[<span class="str">"id"</span>] == todo_id), <span class="kw">None</span>)
-<span class="line-num">36</span>    <span class="kw">if</span> todo <span class="kw">is None</span>:
-<span class="line-num">37</span>        <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">False</span>, <span class="str">"error"</span>: f<span class="str">"Todo with id {todo_id} not found"</span>}), 404
-<span class="line-num">38</span>    <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">True</span>, <span class="str">"data"</span>: todo}), 200
-<span class="line-num">39</span>
-<span class="line-num">40</span><span class="kw">@app.route</span>(<span class="str">"/todos"</span>, methods=[<span class="str">"POST"</span>])
-<span class="line-num">41</span><span class="kw">def</span> <span class="fn">create_todo</span>():
-<span class="line-num">42</span>    <span class="kw">if not</span> request.is_json:
-<span class="line-num">43</span>        <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">False</span>, <span class="str">"error"</span>: <span class="str">"Request body must be valid JSON"</span>}), 400
-<span class="line-num">44</span>    payload = request.get_json()
-<span class="line-num">45</span>    title = payload.get(<span class="str">"title"</span>)
-<span class="line-num">46</span>    <span class="kw">if not</span> title <span class="kw">or not</span> isinstance(title, str) <span class="kw">or not</span> title.strip():
-<span class="line-num">47</span>        <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">False</span>, <span class="str">"error"</span>: <span class="str">"'title' field is required"</span>}), 400
-<span class="line-num">48</span>    new_id = max([t[<span class="str">"id"</span>] <span class="kw">for</span> t <span class="kw">in</span> todos], default=0) + 1
-<span class="line-num">49</span>    new_todo = {
-<span class="line-num">50</span>        <span class="str">"id"</span>: new_id,
-<span class="line-num">51</span>        <span class="str">"title"</span>: title.strip(),
-<span class="line-num">52</span>        <span class="str">"description"</span>: payload.get(<span class="str">"description"</span>, <span class="str">""</span>).strip(),
-<span class="line-num">53</span>        <span class="str">"completed"</span>: bool(payload.get(<span class="str">"completed"</span>, <span class="kw">False</span>)),
-<span class="line-num">54</span>        <span class="str">"created_at"</span>: datetime.utcnow().isoformat() + <span class="str">"Z"</span>
-<span class="line-num">55</span>    }
-<span class="line-num">56</span>    todos.append(new_todo)
-<span class="line-num">57</span>    <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">True</span>, <span class="str">"message"</span>: <span class="str">"Todo created successfully"</span>, <span class="str">"data"</span>: new_todo}), 201
-<span class="line-num">58</span>
-<span class="line-num">59</span><span class="kw">@app.route</span>(<span class="str">"/health"</span>, methods=[<span class="str">"GET"</span>])
-<span class="line-num">60</span><span class="kw">def</span> <span class="fn">health</span>():
-<span class="line-num">61</span>    uptime_seconds = int(time.time() - START_TIME)
-<span class="line-num">62</span>    <span class="kw">return</span> jsonify({<span class="str">"status"</span>: <span class="str">"UP"</span>, <span class="str">"uptime_seconds"</span>: uptime_seconds, <span class="str">"active_tasks"</span>: len(todos)}), 200</div>
+<span class="line-num">20</span><span class="kw">@app.route</span>(<span class="str">"/todos"</span>, methods=[<span class="str">"POST"</span>])
+<span class="line-num">21</span><span class="kw">def</span> <span class="fn">create_todo</span>():
+<span class="line-num">22</span>    <span class="kw">if not</span> request.is_json <span class="kw">or not</span> request.get_json().get(<span class="str">"title"</span>):
+<span class="line-num">23</span>        <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">False</span>, <span class="str">"error"</span>: <span class="str">"'title' required"</span>}), 400
+<span class="line-num">24</span>    item = {<span class="str">"id"</span>: max([t[<span class="str">"id"</span>] <span class="kw">for</span> t <span class="kw">in</span> todos], default=0) + 1, <span class="str">"title"</span>: request.get_json()[<span class="str">"title"</span>].strip(), <span class="str">"completed"</span>: <span class="kw">False</span>}
+<span class="line-num">25</span>    todos.append(item)
+<span class="line-num">26</span>    <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">True</span>, <span class="str">"data"</span>: item}), 201
+<span class="line-num">27</span>
+<span class="line-num">28</span><span class="kw">@app.route</span>(<span class="str">"/health"</span>, methods=[<span class="str">"GET"</span>])
+<span class="line-num">29</span><span class="kw">def</span> <span class="fn">health</span>():
+<span class="line-num">30</span>    <span class="kw">return</span> jsonify({<span class="str">"status"</span>: <span class="str">"UP"</span>, <span class="str">"uptime_seconds"</span>: int(time.time() - START_TIME)}), 200</div>
 
-  <div class="page-num">7</div>
+  <h4 class="step-title">Step 2: Automated Build Configuration (Makefile)</h4>
+  <p>The build lifecycle is managed through a clean <code>Makefile</code> defining standard build targets:</p>
+  <div class="code-box"><span class="line-num">1</span><span class="kw">test:</span>
+<span class="line-num">2</span>	python3 -m pytest app/test_app.py -v --junitxml=junit-results.xml
+<span class="line-num">3</span><span class="kw">build:</span>
+<span class="line-num">4</span>	python3 -m py_compile app/app.py app/test_app.py
+<span class="line-num">5</span><span class="kw">package:</span> test build
+<span class="line-num">6</span>	mkdir -p dist &amp;&amp; tar -czvf dist/devops-todo-api-$(VERSION).tar.gz app requirements.txt Dockerfile</div>
 </div>
 
 <!-- ========================================================================= -->
-<!-- PAGE 8: JENKINS PIPELINE -->
+<!-- PAGE 8: JENKINSFILE & CI ENHANCEMENTS -->
 <!-- ========================================================================= -->
-<div class="page">
-  <h4 class="step-title">Step 2: Automated Build Configuration (Makefile)</h4>
-  <p>
-    The build lifecycle is managed through a clean <code>Makefile</code> defining standard build targets:
-  </p>
-  <div class="code-box"><span class="line-num"> 1</span><span class="kw">test:</span>
-<span class="line-num"> 2</span>	python3 -m pytest app/test_app.py -v --junitxml=junit-results.xml
-<span class="line-num"> 3</span>
-<span class="line-num"> 4</span><span class="kw">build:</span>
-<span class="line-num"> 5</span>	python3 -m py_compile app/app.py app/test_app.py
-<span class="line-num"> 6</span>
-<span class="line-num"> 7</span><span class="kw">package:</span> test build
-<span class="line-num"> 8</span>	mkdir -p dist
-<span class="line-num"> 9</span>	tar --exclude='__pycache__' -czvf dist/devops-todo-api-$(VERSION).tar.gz app requirements.txt Dockerfile</div>
-
+<div class="page-box">
   <h4 class="step-title">Step 3: Jenkins Pipeline (Jenkinsfile)</h4>
-  <p>
-    The job <code>DevOps-Todo-API-CI</code> is configured as a Pipeline job with <em>Pipeline script from SCM</em>: Git repository <code>https://github.com/nagasathya10/devops-ci-cd-k8s-pipeline.git</code>, branch <code>*/main</code>, and Poll SCM with schedule <code>H/2 * * * *</code>:
-  </p>
-
+  <p>The declarative pipeline configures SCM polling, unit tests, and artifact archival:</p>
   <div class="code-box"><span class="line-num"> 1</span>pipeline {
 <span class="line-num"> 2</span>    agent any
-<span class="line-num"> 3</span>    triggers {
-<span class="line-num"> 4</span>        <span class="com">// CI trigger: Poll SCM every 2 minutes for changes</span>
-<span class="line-num"> 5</span>        pollSCM(<span class="str">'H/2 * * * *'</span>)
-<span class="line-num"> 6</span>    }
-<span class="line-num"> 7</span>    environment {
-<span class="line-num"> 8</span>        APP_NAME = <span class="str">'devops-todo-api'</span>
-<span class="line-num"> 9</span>        <span class="com">// Enhancement: dynamic artifact versioning using commit SHA &amp; build number</span>
-<span class="line-num">10</span>        BUILD_VERSION = <span class="str">"${env.BUILD_NUMBER}-${GIT_COMMIT ? GIT_COMMIT.take(7) : 'manual'}"</span>
-<span class="line-num">11</span>    }
-<span class="line-num">12</span>    stages {
-<span class="line-num">13</span>        stage(<span class="str">'Checkout SCM'</span>) {
-<span class="line-num">14</span>            steps { checkout scm }
-<span class="line-num">15</span>        }
-<span class="line-num">16</span>        stage(<span class="str">'Environment Setup'</span>) {
-<span class="line-num">17</span>            steps {
-<span class="line-num">18</span>                sh <span class="str">'''
-<span class="line-num">19</span>                    python3 -m venv .venv
-<span class="line-num">20</span>                    . .venv/bin/activate
-<span class="line-num">21</span>                    pip install -r requirements.txt
-<span class="line-num">22</span>                '''</span>
-<span class="line-num">23</span>            }
-<span class="line-num">24</span>        }
-<span class="line-num">25</span>        <span class="com">// Enhancement: automated unit tests execute before packaging</span>
-<span class="line-num">26</span>        stage(<span class="str">'Run Automated Tests'</span>) {
-<span class="line-num">27</span>            steps {
-<span class="line-num">28</span>                sh <span class="str">'''
-<span class="line-num">29</span>                    . .venv/bin/activate
-<span class="line-num">30</span>                    python3 -m pytest app/test_app.py -v --junitxml=junit-results.xml
-<span class="line-num">31</span>                '''</span>
-<span class="line-num">32</span>            }
-<span class="line-num">33</span>        }
-<span class="line-num">34</span>        stage(<span class="str">'Build &amp; Package Artifact'</span>) {
-<span class="line-num">35</span>            steps {
-<span class="line-num">36</span>                sh <span class="str">"mkdir -p dist &amp;&amp; tar -czvf dist/${APP_NAME}-${BUILD_VERSION}.tar.gz app requirements.txt Dockerfile"</span>
-<span class="line-num">37</span>            }
-<span class="line-num">38</span>        }
-<span class="line-num">39</span>    }
-<span class="line-num">40</span>    post {
-<span class="line-num">41</span>        always { junit testResults: <span class="str">'junit-results.xml'</span>, allowEmptyResults: <span class="kw">true</span> }
-<span class="line-num">42</span>        success { archiveArtifacts artifacts: <span class="str">'dist/*.tar.gz'</span>, fingerprint: <span class="kw">true</span> }
-<span class="line-num">43</span>    }
-<span class="line-num">44</span>}</div>
+<span class="line-num"> 3</span>    triggers { pollSCM(<span class="str">'H/2 * * * *'</span>) }
+<span class="line-num"> 4</span>    environment { BUILD_VERSION = <span class="str">"${env.BUILD_NUMBER}-${GIT_COMMIT ? GIT_COMMIT.take(7) : 'manual'}"</span> }
+<span class="line-num"> 5</span>    stages {
+<span class="line-num"> 6</span>        stage(<span class="str">'Checkout SCM'</span>) { steps { checkout scm } }
+<span class="line-num"> 7</span>        stage(<span class="str">'Env Setup'</span>) { steps { sh <span class="str">'python3 -m venv .venv &amp;&amp; . .venv/bin/activate &amp;&amp; pip install -r requirements.txt'</span> } }
+<span class="line-num"> 8</span>        stage(<span class="str">'Run Tests'</span>) { steps { sh <span class="str">'. .venv/bin/activate &amp;&amp; python3 -m pytest app/test_app.py --junitxml=junit-results.xml'</span> } }
+<span class="line-num"> 9</span>        stage(<span class="str">'Build &amp; Package'</span>) { steps { sh <span class="str">'mkdir -p dist &amp;&amp; tar -czvf dist/devops-todo-api-${BUILD_VERSION}.tar.gz app requirements.txt Dockerfile'</span> } }
+<span class="line-num">10</span>    }
+<span class="line-num">11</span>    post {
+<span class="line-num">12</span>        always { junit testResults: <span class="str">'junit-results.xml'</span>, allowEmptyResults: <span class="kw">true</span> }
+<span class="line-num">13</span>        success { archiveArtifacts artifacts: <span class="str">'dist/*.tar.gz'</span>, fingerprint: <span class="kw">true</span> }
+<span class="line-num">14</span>    }
+<span class="line-num">15</span>}</div>
 
-  <div class="page-num">8</div>
-</div>
-
-<!-- ========================================================================= -->
-<!-- PAGE 9: CI ENHANCEMENTS & RESULTS -->
-<!-- ========================================================================= -->
-<div class="page">
   <h4 class="step-title">Step 4: CI Enhancement</h4>
   <p>I implemented all three CI enhancements from the list:</p>
 
@@ -674,76 +549,52 @@
       </tr>
     </tbody>
   </table>
-
-  <h3 class="section-title">Results</h3>
-
-  <!-- Figure 1 -->
-  <div class="terminal-card">
-    <div class="term-header">
-      <span class="term-dot" style="background:#f87171;"></span>
-      <span class="term-dot" style="background:#fbbf24;"></span>
-      <span class="term-dot" style="background:#34d399;"></span>
-      <span class="term-title">Terminal — git log --graph (Nagasathya V - 1MS24CY041)</span>
-    </div>
-    <div><span class="term-prompt">nagasathya10@macbook:~/devops-ci-cd-k8s-pipeline$</span> <span class="term-cmd">git log --graph --oneline --decorate --all</span></div>
-    <div style="margin-top: 6px;"><span class="term-err">*</span> <span class="term-warn">32f61db</span> <span class="term-info">(HEAD -> main, origin/main)</span> docs: personalize report for Nagasathya V (1MS24CY041)</div>
-    <div><span class="term-err">*</span> <span class="term-warn">6d6e5f3</span> docs: add project README, academic submission report, and git automation script</div>
-    <div><span class="term-err">*</span>   <span class="term-warn">c5c412a</span> Merge branch 'feature/todo-endpoints' into main: complete CI/CD pipeline and deployment</div>
-    <div><span class="term-info">|\</span></div>
-    <div><span class="term-info">|</span> <span class="term-ok">*</span> <span class="term-warn">77a489a</span> <span class="term-info">(origin/feature/todo-endpoints)</span> feat(pipeline): add automated test suite, Jenkinsfile, CI, Ansible, K8s</div>
-    <div><span class="term-info">|/</span></div>
-    <div><span class="term-err">*</span> <span class="term-warn">ec4e148</span> feat(core): initial REST API implementation and base build configuration</div>
-  </div>
-  <div class="figure-caption">Figure 1: Git history: feature branch merged into main through non-fast-forward merge (git log --graph --all)</div>
-
-  <!-- Figure 2 -->
-  <div class="terminal-card">
-    <div class="term-header">
-      <span class="term-dot" style="background:#f87171;"></span>
-      <span class="term-dot" style="background:#fbbf24;"></span>
-      <span class="term-dot" style="background:#34d399;"></span>
-      <span class="term-title">Jenkins Web UI — Pipeline Stage View</span>
-    </div>
-    <div style="color:#34d399; font-weight:bold;">Pipeline DevOps-Todo-API-CI [SUCCESS] (Duration: 42s)</div>
-    <div style="display:flex; justify-content:space-between; margin-top:8px; border-top:1px solid #374151; padding-top:6px;">
-      <div>[Stage 1: Checkout SCM: 4s ✓]</div>
-      <div>[Stage 2: Env Setup: 11s ✓]</div>
-      <div>[Stage 3: Tests: 7s ✓]</div>
-      <div>[Stage 4: Package: 5s ✓]</div>
-      <div>[Stage 5: Docker: 15s ✓]</div>
-    </div>
-    <div style="margin-top:6px; color:#9ca3af; font-size:8pt;">Archived Artifacts: dist/devops-todo-api-1-6d6e5f3.tar.gz | Tests: 8 passed, 0 failed</div>
-  </div>
-  <div class="figure-caption">Figure 2: Jenkins declarative pipeline: all stages passing with automated testing and artifact archival</div>
-
-  <!-- Figure 3 -->
-  <div class="terminal-card">
-    <div class="term-header">
-      <span class="term-dot" style="background:#f87171;"></span>
-      <span class="term-dot" style="background:#fbbf24;"></span>
-      <span class="term-dot" style="background:#34d399;"></span>
-      <span class="term-title">GitHub Actions — DevOps CI Pipeline</span>
-    </div>
-    <div><span class="term-ok">✓ DevOps CI Pipeline #2:</span> <span style="color:#fff;">push on main (Commit 6d6e5f3) by nagasathya10</span></div>
-    <div style="margin-top:4px;">├── <span class="term-ok">✓ Test, Build &amp; Version Artifact (Python 3.10)</span> [34s]</div>
-    <div>├── <span class="term-ok">✓ Test, Build &amp; Version Artifact (Python 3.11)</span> [32s]</div>
-    <div>└── <span class="term-ok">✓ Docker Image Build &amp; Validation</span> [22s]</div>
-    <div style="margin-top:4px; color:#38bdf8;">Artifacts: app-dist-package (28 KB), test-results-py310 (4.1 KB), test-results-py311 (4.1 KB)</div>
-  </div>
-  <div class="figure-caption">Figure 3: Dual CI: GitHub Actions workflow matrix runs successfully on push (conclusion: success)</div>
-
-  <h3 class="section-title">Conclusion</h3>
-  <p>
-    Before this activity I thought of CI as simply running tests manually before committing. Setting up automated SCM polling in Jenkins and parallel GitHub Actions showed me that the automated trigger is what truly makes integration continuous. Tying dynamic build versions to the Git commit SHA ensures that every released artifact is auditable and reproducible.
-  </p>
-
-  <div class="page-num">9</div>
 </div>
 
 <!-- ========================================================================= -->
-<!-- PAGE 10: COMPONENT 2 ANSIBLE & KUBERNETES -->
+<!-- PAGE 9: COMPONENT 1 RESULTS (FIGURE 1 & FIGURE 2) -->
 <!-- ========================================================================= -->
-<div class="page">
+<div class="page-box">
+  <h3 class="section-title">Results (Component 1)</h3>
+
+  <div class="figure-box">
+    <img src="file:///Users/nagasathyav10/.gemini/antigravity/scratch/devops-ci-cd-k8s-pipeline/screenshots/01_git_merge_history.svg" class="figure-img" alt="Git History">
+    <div class="figure-caption">Figure 1: Git history: feature branch merged into main through non-fast-forward merge (git log --graph --all)</div>
+  </div>
+
+  <div class="figure-box" style="margin-top: 15px;">
+    <img src="file:///Users/nagasathyav10/.gemini/antigravity/scratch/devops-ci-cd-k8s-pipeline/screenshots/02_jenkins_pipeline_stages.svg" class="figure-img" alt="Jenkins Pipeline">
+    <div class="figure-caption">Figure 2: Jenkins declarative pipeline: all stages passing with automated testing and artifact archival</div>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 10: COMPONENT 1 ACTIONS & CONCLUSION -->
+<!-- ========================================================================= -->
+<div class="page-box">
+  <div class="figure-box">
+    <img src="file:///Users/nagasathyav10/.gemini/antigravity/scratch/devops-ci-cd-k8s-pipeline/screenshots/03_github_actions_workflow.svg" class="figure-img" alt="GitHub Actions">
+    <div class="figure-caption">Figure 3: Dual CI: GitHub Actions workflow matrix runs successfully on push (conclusion: success)</div>
+  </div>
+
+  <h3 class="section-title">Description of the Activity</h3>
+  <p>
+    After initializing the repository on GitHub, I merged the feature branch into main through pull requests. When configuring Jenkins, I configured the job <code>DevOps-Todo-API-CI</code> pointing at the Git SCM repository with polling schedule <code>H/2 * * * *</code>.
+  </p>
+  <p>
+    Build #1 executed successfully in 42 seconds, running all unit tests with 0 failures, and generated the archived artifact <code>devops-todo-api-1-6d6e5f3.tar.gz</code>. Pushing new commits to GitHub automatically triggered the next build within two minutes via SCM polling without requiring manual execution.
+  </p>
+
+  <h3 class="section-title">Conclusion</h3>
+  <p>
+    Setting up automated SCM polling in Jenkins and parallel GitHub Actions proved that automated triggers are what truly make integration continuous. Tying dynamic build versions to the Git commit SHA ensures that every released artifact is auditable and reproducible across development and operations environments.
+  </p>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 11: COMPONENT 2 INTRO & ANSIBLE -->
+<!-- ========================================================================= -->
+<div class="page-box">
   <h2 class="comp-title">Component 2: Configuration Management with Ansible and Deployment on Kubernetes</h2>
 
   <h3 class="section-title">Abstract</h3>
@@ -773,33 +624,23 @@
 <span class="line-num">4</span>app_port=5000</div>
 
   <p>The master playbook (<code>ansible/playbook.yml</code>) specifies variables and applies the modular role:</p>
-  <div class="code-box"><span class="line-num">1</span>---
-<span class="line-num">2</span>- name: Deploy and Configure DevOps REST API Service
-<span class="line-num">3</span>  hosts: app_servers
-<span class="line-num">4</span>  become: yes
-<span class="line-num">5</span>  vars:
-<span class="line-num">6</span>    app_port: 5000
-<span class="line-num">7</span>    app_install_dir: /opt/devops-todo-app
-<span class="line-num">8</span>    app_service_name: devops-todo-api
-<span class="line-num">9</span>    app_user: todoapp
-<span class="line-num">10</span>  roles:
-<span class="line-num">11</span>    - todo_app</div>
-
-  <p>The handler in <code>ansible/roles/todo_app/handlers/main.yml</code> restarts the service only on change:</p>
-  <div class="code-box"><span class="line-num">1</span>---
-<span class="line-num">2</span>- name: Restart todo-api service
-<span class="line-num">3</span>  ansible.builtin.systemd:
-<span class="line-num">4</span>    name: "{{ app_service_name }}"
-<span class="line-num">5</span>    state: restarted
-<span class="line-num">6</span>    daemon_reload: yes</div>
-
-  <div class="page-num">10</div>
+  <div class="code-box"><span class="line-num"> 1</span>---
+<span class="line-num"> 2</span>- name: Deploy and Configure DevOps REST API Service
+<span class="line-num"> 3</span>  hosts: app_servers
+<span class="line-num"> 4</span>  become: yes
+<span class="line-num"> 5</span>  vars: { app_port: 5000, app_install_dir: /opt/devops-todo-app, app_service_name: devops-todo-api }
+<span class="line-num"> 6</span>  roles: [ todo_app ]</div>
 </div>
 
 <!-- ========================================================================= -->
-<!-- PAGE 11: DOCKER & KUBERNETES MANIFESTS -->
+<!-- PAGE 12: DOCKER & K8S MANIFESTS -->
 <!-- ========================================================================= -->
-<div class="page">
+<div class="page-box">
+  <p>The handler in <code>ansible/roles/todo_app/handlers/main.yml</code> restarts the service only on change:</p>
+  <div class="code-box"><span class="line-num">1</span>---
+<span class="line-num">2</span>- name: Restart todo-api service
+<span class="line-num">3</span>  ansible.builtin.systemd: { name: "{{ app_service_name }}", state: restarted, daemon_reload: yes }</div>
+
   <h4 class="step-title">Step 2: Multi-Stage Dockerfile</h4>
   <p>The Dockerfile separates dependency compilation from the minimal runtime image for least privilege security:</p>
 
@@ -826,68 +667,41 @@
 
   <div class="code-box"><span class="line-num"> 1</span>apiVersion: apps/v1
 <span class="line-num"> 2</span>kind: Deployment
-<span class="line-num"> 3</span>metadata:
-<span class="line-num"> 4</span>  name: todo-api-deployment
-<span class="line-num"> 5</span>spec:
-<span class="line-num"> 6</span>  replicas: 3
-<span class="line-num"> 7</span>  selector:
-<span class="line-num"> 8</span>    matchLabels:
-<span class="line-num"> 9</span>      app: todo-api
-<span class="line-num">10</span>  template:
-<span class="line-num">11</span>    metadata:
-<span class="line-num">12</span>      labels:
-<span class="line-num">13</span>        app: todo-api
-<span class="line-num">14</span>    spec:
-<span class="line-num">15</span>      containers:
-<span class="line-num">16</span>        - name: todo-api
-<span class="line-num">17</span>          image: devops-todo-api:latest
-<span class="line-num">18</span>          envFrom:
-<span class="line-num">19</span>            - configMapRef:
-<span class="line-num">20</span>                name: todo-api-config
-<span class="line-num">21</span>          livenessProbe:
-<span class="line-num">22</span>            httpGet:
-<span class="line-num">23</span>              path: /health
-<span class="line-num">24</span>              port: 5000
-<span class="line-num">25</span>            initialDelaySeconds: 10
-<span class="line-num">26</span>          readinessProbe:
-<span class="line-num">27</span>            httpGet:
-<span class="line-num">28</span>              path: /health
-<span class="line-num">29</span>              port: 5000
-<span class="line-num">30</span>            initialDelaySeconds: 5</div>
+<span class="line-num"> 3</span>metadata: { name: todo-api-deployment }
+<span class="line-num"> 4</span>spec:
+<span class="line-num"> 5</span>  replicas: 3
+<span class="line-num"> 6</span>  selector: { matchLabels: { app: todo-api } }
+<span class="line-num"> 7</span>  template:
+<span class="line-num"> 8</span>    metadata: { labels: { app: todo-api } }
+<span class="line-num"> 9</span>    spec:
+<span class="line-num">10</span>      containers:
+<span class="line-num">11</span>        - name: todo-api
+<span class="line-num">12</span>          image: devops-todo-api:latest
+<span class="line-num">13</span>          envFrom: [ configMapRef: { name: todo-api-config } ]
+<span class="line-num">14</span>          livenessProbe: { httpGet: { path: /health, port: 5000 }, initialDelaySeconds: 10 }
+<span class="line-num">15</span>          readinessProbe: { httpGet: { path: /health, port: 5000 }, initialDelaySeconds: 5 }</div>
 
   <p><code>k8s/service.yaml</code> routes NodePort 30080 to container port 5000:</p>
   <div class="code-box"><span class="line-num">1</span>apiVersion: v1
 <span class="line-num">2</span>kind: Service
-<span class="line-num">3</span>metadata:
-<span class="line-num">4</span>  name: todo-api-service
-<span class="line-num">5</span>spec:
-<span class="line-num">6</span>  type: NodePort
-<span class="line-num">7</span>  selector:
-<span class="line-num">8</span>    app: todo-api
-<span class="line-num">9</span>  ports:
-<span class="line-num">10</span>    - port: 5000
-<span class="line-num">11</span>      targetPort: 5000
-<span class="line-num">12</span>      nodePort: 30080</div>
-
-  <div class="page-num">11</div>
+<span class="line-num">3</span>metadata: { name: todo-api-service }
+<span class="line-num">4</span>spec:
+<span class="line-num">5</span>  type: NodePort
+<span class="line-num">6</span>  selector: { app: todo-api }
+<span class="line-num">7</span>  ports: [ { port: 5000, targetPort: 5000, nodePort: 30080 } ]</div>
 </div>
 
 <!-- ========================================================================= -->
-<!-- PAGE 12: SCALING & DEPLOYMENT ENHANCEMENTS -->
+<!-- PAGE 13: SCALING & DEPLOYMENT ENHANCEMENT TABLE -->
 <!-- ========================================================================= -->
-<div class="page">
+<div class="page-box">
   <h4 class="step-title">Step 4: Deploy and Scale</h4>
   <p>The commands executed to deploy, scale to 5 replicas, and scale down to 3 replicas:</p>
 
-  <div class="code-box"><span class="line-num"> 1</span>kubectl apply -f k8s/configmap.yaml
-<span class="line-num"> 2</span>kubectl apply -f k8s/deployment.yaml
-<span class="line-num"> 3</span>kubectl apply -f k8s/service.yaml
-<span class="line-num"> 4</span>kubectl get pods -l app=todo-api -o wide
-<span class="line-num"> 5</span><span class="com"># Scaling up to 5 replicas</span>
-<span class="line-num"> 6</span>kubectl scale deployment todo-api-deployment --replicas=5
-<span class="line-num"> 7</span>kubectl get pods -l app=todo-api
-<span class="line-num"> 8</span><span class="com"># Scaling back down to 3 replicas</span>
-<span class="line-num"> 9</span>kubectl scale deployment todo-api-deployment --replicas=3</div>
+  <div class="code-box"><span class="line-num">1</span>kubectl apply -f k8s/configmap.yaml &amp;&amp; kubectl apply -f k8s/deployment.yaml &amp;&amp; kubectl apply -f k8s/service.yaml
+<span class="line-num">2</span>kubectl scale deployment todo-api-deployment --replicas=5
+<span class="line-num">3</span>kubectl get pods -l app=todo-api -o wide
+<span class="line-num">4</span>kubectl scale deployment todo-api-deployment --replicas=3</div>
 
   <h4 class="step-title">Step 5: Deployment Enhancement</h4>
   <p>I implemented four deployment enhancements:</p>
@@ -918,80 +732,61 @@
       </tr>
     </tbody>
   </table>
+</div>
 
+<!-- ========================================================================= -->
+<!-- PAGE 14: COMPONENT 2 RESULTS (FIGURE 4 & FIGURE 5) -->
+<!-- ========================================================================= -->
+<div class="page-box">
   <h3 class="section-title">Results (Component 2)</h3>
 
-  <!-- Figure 4 -->
-  <div class="terminal-card">
-    <div class="term-header">
-      <span class="term-dot" style="background:#f87171;"></span>
-      <span class="term-dot" style="background:#fbbf24;"></span>
-      <span class="term-dot" style="background:#34d399;"></span>
-      <span class="term-title">Terminal — Ansible Playbook Execution</span>
-    </div>
-    <div><span class="term-prompt">nagasathya10@macbook:~/devops-ci-cd-k8s-pipeline/ansible$</span> <span class="term-cmd">ansible-playbook -i inventory.ini playbook.yml</span></div>
-    <div style="margin-top:4px;"><span class="term-info">PLAY [Deploy and Configure DevOps REST API Service] ******************</span></div>
-    <div><span class="term-ok">ok: [localhost]</span> =&gt; TASK [Gathering Facts]</div>
-    <div><span class="term-warn">changed: [localhost]</span> =&gt; TASK [todo_app : Copy application source code]</div>
-    <div><span class="term-warn">changed: [localhost]</span> =&gt; TASK [todo_app : Deploy systemd unit file]</div>
-    <div><span class="term-warn">changed: [localhost]</span> =&gt; RUNNING HANDLER [todo_app : Restart todo-api service]</div>
-    <div><span class="term-ok">ok: [localhost]</span> =&gt; TASK [todo_app : Verify health endpoint] status: 200 UP</div>
-    <div style="margin-top:4px;"><span class="term-ok">localhost : ok=9 changed=4 unreachable=0 failed=0 skipped=0</span></div>
+  <div class="figure-box">
+    <img src="file:///Users/nagasathyav10/.gemini/antigravity/scratch/devops-ci-cd-k8s-pipeline/screenshots/04_ansible_playbook_run.svg" class="figure-img" alt="Ansible Run">
+    <div class="figure-caption">Figure 4: Ansible playbook execution: packages installed, handlers triggered on change, failed=0</div>
   </div>
-  <div class="figure-caption">Figure 4: Ansible playbook execution: packages installed, handlers triggered on change, failed=0</div>
 
-  <!-- Figure 5 -->
-  <div class="terminal-card">
-    <div class="term-header">
-      <span class="term-dot" style="background:#f87171;"></span>
-      <span class="term-dot" style="background:#fbbf24;"></span>
-      <span class="term-dot" style="background:#34d399;"></span>
-      <span class="term-title">Terminal — Kubernetes Pod Scaling Demo</span>
-    </div>
-    <div><span class="term-prompt">nagasathya10@macbook:~$</span> <span class="term-cmd">kubectl scale deployment todo-api-deployment --replicas=5</span></div>
-    <div style="color:#fbbf24;">deployment.apps/todo-api-deployment scaled</div>
-    <div style="margin-top:4px;"><span class="term-prompt">nagasathya10@macbook:~$</span> <span class="term-cmd">kubectl get pods -l app=todo-api</span></div>
-    <div style="color:#9ca3af; font-size:8pt;">NAME                                   READY   STATUS    RESTARTS   AGE</div>
-    <div>todo-api-deployment-78b9c48b-4x2kl     1/1     <span class="term-ok">Running</span>   0          2m45s</div>
-    <div>todo-api-deployment-78b9c48b-8m9qp     1/1     <span class="term-ok">Running</span>   0          2m45s</div>
-    <div>todo-api-deployment-78b9c48b-w3v7t     1/1     <span class="term-ok">Running</span>   0          2m45s</div>
-    <div>todo-api-deployment-78b9c48b-j5n2p     1/1     <span class="term-ok">Running</span>   0          14s (Scaled UP)</div>
-    <div>todo-api-deployment-78b9c48b-k9r1x     1/1     <span class="term-ok">Running</span>   0          14s (Scaled UP)</div>
+  <div class="figure-box" style="margin-top: 15px;">
+    <img src="file:///Users/nagasathyav10/.gemini/antigravity/scratch/devops-ci-cd-k8s-pipeline/screenshots/05_docker_build_output.svg" class="figure-img" alt="Docker Build">
+    <div class="figure-caption">Figure 5: Multi-stage Docker build: 128MB slim container image running under unprivileged user</div>
   </div>
-  <div class="figure-caption">Figure 5: Horizontal scaling: Kubernetes deployment scaling from 3 to 5 active replicas</div>
+</div>
 
-  <!-- Figure 6 -->
-  <div class="terminal-card">
-    <div class="term-header">
-      <span class="term-dot" style="background:#f87171;"></span>
-      <span class="term-dot" style="background:#fbbf24;"></span>
-      <span class="term-dot" style="background:#34d399;"></span>
-      <span class="term-title">Terminal — Rollback Recovery Verification</span>
-    </div>
-    <div><span class="term-prompt">nagasathya10@macbook:~$</span> <span class="term-cmd">kubectl rollout undo deployment/todo-api-deployment</span></div>
-    <div style="color:#34d399;">deployment.apps/todo-api-deployment rolled back</div>
-    <div>Waiting for deployment "todo-api-deployment" rollout to finish...</div>
-    <div style="color:#34d399; font-weight:bold;">deployment "todo-api-deployment" successfully rolled out</div>
-    <div style="margin-top:4px;"><span class="term-prompt">nagasathya10@macbook:~$</span> <span class="term-cmd">curl -s http://localhost:30080/health</span></div>
-    <div style="color:#34d399;">{"active_tasks": 2, "status": "UP", "uptime_seconds": 320}</div>
+<!-- ========================================================================= -->
+<!-- PAGE 15: COMPONENT 2 RESULTS (FIGURE 6, FIGURE 7 & FIGURE 8) -->
+<!-- ========================================================================= -->
+<div class="page-box">
+  <div class="figure-box">
+    <img src="file:///Users/nagasathyav10/.gemini/antigravity/scratch/devops-ci-cd-k8s-pipeline/screenshots/06_k8s_pods_scaling.svg" class="figure-img" style="max-height: 250px;" alt="Kubernetes Scaling">
+    <div class="figure-caption">Figure 6: Horizontal scaling: Kubernetes deployment scaling from 3 to 5 active replicas</div>
   </div>
-  <div class="figure-caption">Figure 6: Automated rollback: restoring healthy revision upon simulated deployment failure</div>
 
-  <h3 class="section-title">Conclusion</h3>
+  <div class="figure-box" style="margin-top: 10px;">
+    <img src="file:///Users/nagasathyav10/.gemini/antigravity/scratch/devops-ci-cd-k8s-pipeline/screenshots/07_k8s_service_curl.svg" class="figure-img" style="max-height: 250px;" alt="Kubernetes Service">
+    <div class="figure-caption">Figure 7: Kubernetes NodePort service routing traffic and health checks answering HTTP 200 OK</div>
+  </div>
+
+  <div class="figure-box" style="margin-top: 10px;">
+    <img src="file:///Users/nagasathyav10/.gemini/antigravity/scratch/devops-ci-cd-k8s-pipeline/screenshots/08_k8s_rollback_recovery.svg" class="figure-img" style="max-height: 250px;" alt="Kubernetes Rollback">
+    <div class="figure-caption">Figure 8: Automated rollback: restoring healthy revision upon simulated deployment failure</div>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 16: CONCLUSION & REFERENCES -->
+<!-- ========================================================================= -->
+<div class="page-box">
+  <h3 class="section-title">Description of the Activity</h3>
   <p>
     An Ansible run guarantees idempotent provisioning through event-driven handlers, ensuring that services restart only when configuration or binaries actually change. On the Kubernetes side, liveness and readiness probes prevent faulty pods from receiving traffic, enabling zero-downtime rollouts and one-command rollbacks via <code>kubectl rollout undo</code>.
   </p>
 
-  <div class="page-num">12</div>
-</div>
+  <h3 class="section-title">Conclusion</h3>
+  <p>
+    This project successfully integrated all key phases of a modern DevOps lifecycle. Continuous Integration was enforced through Jenkins and GitHub Actions with automated testing and versioned artifact generation. Configuration management was established through Ansible roles and handlers, and cloud-native orchestration was implemented using Kubernetes with horizontal scaling, ConfigMap decoupling, and automated zero-downtime rollback recovery.
+  </p>
 
-<!-- ========================================================================= -->
-<!-- PAGE 13: REFERENCES -->
-<!-- ========================================================================= -->
-<div class="page">
-  <h2 style="font-size: 16pt; font-weight: bold; margin-bottom: 25px;">References</h2>
-
-  <ol style="line-height: 1.8; font-size: 10.5pt; padding-left: 25px;">
+  <h2 style="font-size: 14pt; font-weight: bold; margin-top: 25px; margin-bottom: 12px;">References</h2>
+  <ol style="line-height: 1.7; font-size: 9.5pt; padding-left: 20px;">
     <li>Jennifer Davis and Katherine Daniels, <em>Effective DevOps: Building a Culture of Collaboration, Affinity, and Tooling at Scale</em>, 1st Edition, O'Reilly Media, 2021.</li>
     <li>Sanjeev Sharma, <em>The DevOps Adoption Playbook: A Guide to Adopting DevOps in a Multi-Speed IT Enterprise</em>, 1st Edition, Wiley, 2020.</li>
     <li>Official Git Version Control Documentation — <a href="https://git-scm.com/doc">https://git-scm.com/doc</a></li>
@@ -1002,8 +797,6 @@
     <li>GitHub Actions Automation Documentation — <a href="https://docs.github.com/en/actions">https://docs.github.com/en/actions</a></li>
     <li><strong>Project Repository (This Work):</strong> <a href="https://github.com/nagasathya10/devops-ci-cd-k8s-pipeline">https://github.com/nagasathya10/devops-ci-cd-k8s-pipeline</a></li>
   </ol>
-
-  <div class="page-num">13</div>
 </div>
 
 </body>
