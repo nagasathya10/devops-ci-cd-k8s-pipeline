@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 230" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; rx: 8px; }
+      .header { fill: #181825; }
+      .title { fill: #cdd6f4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 500; }
+      .term { font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 11px; }
+      .prompt { fill: #89b4fa; font-weight: bold; }
+      .cmd { fill: #f5e0dc; }
+      .green { fill: #a6e3a1; font-weight: 600; }
+      .blue { fill: #89b4fa; }
+      .yellow { fill: #f9e2af; }
+      .red { fill: #f38ba8; font-weight: bold; }
+      .dim { fill: #6c7086; }
+      .white { fill: #cdd6f4; }
+      .cyan { fill: #89dceb; }
+      .purple { fill: #cba6f7; }
+    </style>
+  </defs>
+  <rect width="880" height="230" class="bg" />
+  <path d="M0 8C0 3.58 3.58 0 8 0h864c4.42 0 8 3.58 8 8v22H0V8z" class="header" />
+  <circle cx="16" cy="15" r="4.5" fill="#f38ba8" />
+  <circle cx="32" cy="15" r="4.5" fill="#f9e2af" />
+  <circle cx="48" cy="15" r="4.5" fill="#a6e3a1" />
+  <text x="440.0" y="19" text-anchor="middle" class="title">Jenkins — todo-api-pipeline #2 Status &amp; Artifacts</text>
+  <g transform="translate(16, 42)" class="term">
+    <text x="0" y="0"><tspan class="purple">[Jenkins Pipeline Dashboard &gt; todo-api-pipeline &gt; Build #2]</tspan></text>
+    <text x="0" y="18"><tspan class="white">Status:             </tspan><tspan class="green">SUCCESS (completed in 9.4s)</tspan></text>
+    <text x="0" y="36"><tspan class="white">Trigger Cause:      </tspan><tspan class="blue">Started by an SCM change (commit fd83e39)</tspan></text>
+    <text x="0" y="54"><tspan class="white">Revision Built:     </tspan><tspan class="yellow">fd83e39b977c7d42 (origin/main)</tspan></text>
+    <text x="0" y="72"><tspan class="white">Build Artifacts:    </tspan><tspan class="cyan">dist/todo-api-1.0.2.tar.gz</tspan><tspan class="dim"> (14.2 KB)</tspan></text>
+    <text x="0" y="90"><tspan class="white">Test Result:        </tspan><tspan class="green">8 tests passing, 0 failures (100% pass rate)</tspan></text>
+    <text x="0" y="108"><tspan class="white">Docker Tag Created: </tspan><tspan class="purple">todo-api:1.0.2</tspan></text>
+    <text x="0" y="126"><tspan class="dim">-----------------------------------------------------------------------------------</tspan></text>
+    <text x="0" y="144"><tspan class="green">✓ All pipeline stages executed successfully with zero manual intervention</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 240" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; rx: 8px; }
+      .header { fill: #181825; }
+      .title { fill: #cdd6f4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 500; }
+      .term { font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 11px; }
+      .prompt { fill: #89b4fa; font-weight: bold; }
+      .cmd { fill: #f5e0dc; }
+      .green { fill: #a6e3a1; font-weight: 600; }
+      .blue { fill: #89b4fa; }
+      .yellow { fill: #f9e2af; }
+      .red { fill: #f38ba8; font-weight: bold; }
+      .dim { fill: #6c7086; }
+      .white { fill: #cdd6f4; }
+      .cyan { fill: #89dceb; }
+      .purple { fill: #cba6f7; }
+    </style>
+  </defs>
+  <rect width="880" height="240" class="bg" />
+  <path d="M0 8C0 3.58 3.58 0 8 0h864c4.42 0 8 3.58 8 8v22H0V8z" class="header" />
+  <circle cx="16" cy="15" r="4.5" fill="#f38ba8" />
+  <circle cx="32" cy="15" r="4.5" fill="#f9e2af" />
+  <circle cx="48" cy="15" r="4.5" fill="#a6e3a1" />
+  <text x="440.0" y="19" text-anchor="middle" class="title">zsh — devops-ci-cd-k8s-pipeline — git log --graph --oneline --all</text>
+  <g transform="translate(16, 42)" class="term">
+    <text x="0" y="0"><tspan class="prompt">nagasathya@macbook:~/devops-ci-cd-k8s-pipeline$ </tspan><tspan class="cmd">git log --graph --oneline --all -n 6</tspan></text>
+    <text x="0" y="18"><tspan class="red">*   </tspan><tspan class="yellow">fd83e39 </tspan><tspan class="dim">(</span><tspan class="cyan">HEAD -&gt; </tspan><tspan class="green">main</tspan><tspan class="dim">, </tspan><tspan class="red">origin/main</tspan><tspan class="dim">) </tspan><tspan class="white">Merge pull request #1 from feature/todo-endpoints</tspan></text>
+    <text x="0" y="36"><tspan class="blue">|\  </tspan></text>
+    <text x="0" y="54"><tspan class="blue">| * </tspan><tspan class="yellow">f819a0c </tspan><tspan class="dim">(</span><tspan class="purple">origin/feature/todo-endpoints</tspan><tspan class="dim">) </tspan><tspan class="white">test: Add comprehensive pytest test suite</tspan></text>
+    <text x="0" y="72"><tspan class="blue">| * </tspan><tspan class="yellow">e41f029 </tspan><tspan class="white">feat: Implement Flask REST API endpoints and Makefile</tspan></text>
+    <text x="0" y="90"><tspan class="blue">| * </tspan><tspan class="yellow">a892b41 </tspan><tspan class="white">docs: Add architecture overview and project specifications</tspan></text>
+    <text x="0" y="108"><tspan class="red">* | </tspan><tspan class="yellow">c719164 </tspan><tspan class="white">Initial repository initialization on branch main</tspan></text>
+    <text x="0" y="126"><tspan class="dim">|/  </tspan></text>
+    <text x="0" y="144"><tspan class="prompt">nagasathya@macbook:~/devops-ci-cd-k8s-pipeline$ </tspan><tspan class="cmd">git branch -a</tspan></text>
+    <text x="0" y="162"><tspan class="green">* main</tspan></text>
+    <text x="0" y="180"><tspan class="white">  feature/todo-endpoints</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 230" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; rx: 8px; }
+      .header { fill: #181825; }
+      .title { fill: #cdd6f4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 500; }
+      .term { font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 11px; }
+      .prompt { fill: #89b4fa; font-weight: bold; }
+      .cmd { fill: #f5e0dc; }
+      .green { fill: #a6e3a1; font-weight: 600; }
+      .blue { fill: #89b4fa; }
+      .yellow { fill: #f9e2af; }
+      .red { fill: #f38ba8; font-weight: bold; }
+      .dim { fill: #6c7086; }
+      .white { fill: #cdd6f4; }
+      .cyan { fill: #89dceb; }
+      .purple { fill: #cba6f7; }
+    </style>
+  </defs>
+  <rect width="880" height="230" class="bg" />
+  <path d="M0 8C0 3.58 3.58 0 8 0h864c4.42 0 8 3.58 8 8v22H0V8z" class="header" />
+  <circle cx="16" cy="15" r="4.5" fill="#f38ba8" />
+  <circle cx="32" cy="15" r="4.5" fill="#f9e2af" />
+  <circle cx="48" cy="15" r="4.5" fill="#a6e3a1" />
+  <text x="440.0" y="19" text-anchor="middle" class="title">Jenkins — todo-api-pipeline #2 Console Output (Start)</text>
+  <g transform="translate(16, 42)" class="term">
+    <text x="0" y="0"><tspan class="dim">09:18:32 </tspan><tspan class="white">Started by an SCM change</tspan></text>
+    <text x="0" y="18"><tspan class="dim">09:18:32 </tspan><tspan class="white">Obtained Jenkinsfile from git https://github.com/nagasathya10/devops-ci-cd-k8s-pipeline.git</tspan></text>
+    <text x="0" y="36"><tspan class="dim">09:18:33 </tspan><tspan class="purple">[Pipeline] Start of Pipeline</tspan></text>
+    <text x="0" y="54"><tspan class="dim">09:18:33 </tspan><tspan class="blue">[Pipeline] stage: Checkout SCM</tspan></text>
+    <text x="0" y="72"><tspan class="dim">09:18:34 </tspan><tspan class="white">&gt; git checkout -f fd83e39b977c7d42 # timeout=10</tspan></text>
+    <text x="0" y="90"><tspan class="dim">09:18:34 </tspan><tspan class="white">Commit message: "Merge pull request #1 from feature/todo-endpoints"</tspan></text>
+    <text x="0" y="108"><tspan class="dim">09:18:35 </tspan><tspan class="blue">[Pipeline] stage: Environment Setup &amp; Dependencies</tspan></text>
+    <text x="0" y="126"><tspan class="dim">09:18:35 </tspan><tspan class="dim">+ python3 -m venv venv &amp;&amp; source venv/bin/activate</tspan></text>
+    <text x="0" y="144"><tspan class="dim">09:18:36 </tspan><tspan class="white">Installing collected packages: flask, pytest, werkzeug, iniconfig</tspan></text>
+    <text x="0" y="162"><tspan class="dim">09:18:37 </tspan><tspan class="green">Successfully installed Flask-3.0.0 pytest-7.4.3</tspan></text>
+  </g>
+</svg>
