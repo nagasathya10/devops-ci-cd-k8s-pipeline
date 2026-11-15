@@ -1,0 +1,10 @@
+---
+# Default variables for role todo_app
+app_port: 5000
+app_host: 0.0.0.0
+app_user: todoapp
+app_group: todoapp
+app_install_dir: /opt/devops-todo-app
+app_service_name: devops-todo-api
+app_environment: production
+python_executable: python3

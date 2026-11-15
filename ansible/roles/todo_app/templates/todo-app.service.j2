@@ -1,0 +1,18 @@
+[Unit]
+Description=DevOps Task Management REST API Service
+After=network.target
+
+[Service]
+User={{ app_user }}
+Group={{ app_group }}
+WorkingDirectory={{ app_install_dir }}
+Environment="PORT={{ app_port }}"
+Environment="HOST={{ app_host }}"
+Environment="ENVIRONMENT={{ app_environment }}"
+Environment="PATH={{ app_install_dir }}/.venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart={{ app_install_dir }}/.venv/bin/gunicorn --workers 2 --bind {{ app_host }}:{{ app_port }} app.app:app
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

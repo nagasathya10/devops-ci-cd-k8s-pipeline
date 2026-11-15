@@ -1,0 +1,8 @@
+---
+# Handlers for todo_app role
+- name: Restart todo-api service
+  ansible.builtin.systemd:
+    name: "{{ app_service_name }}"
+    state: restarted
+    daemon_reload: yes
+  listen: "Restart todo-api service"
