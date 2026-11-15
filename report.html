@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Self Learning Activity Report - DevOps (24CYAEC59) - Nagasathya V (1MS24CY041)</title>
+<style>
+  @page {
+    size: A4;
+    margin: 20mm 18mm 20mm 18mm;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #111;
+    margin: 0;
+    padding: 0;
+  }
+  .page {
+    page-break-before: always;
+    clear: both;
+    position: relative;
+    min-height: 960px;
+  }
+  .page:first-child {
+    page-break-before: avoid;
+  }
+  
+  /* Ramaiah Header Banner */
+  .inst-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #8b1538;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+  }
+  .logo-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-crest {
+    width: 44px;
+    height: 44px;
+    background: #8b1538;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: sans-serif;
+  }
+  .inst-name {
+    font-family: sans-serif;
+    font-size: 13pt;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: 0.5px;
+  }
+  .inst-sub {
+    font-family: sans-serif;
+    font-size: 8pt;
+    color: #555;
+  }
+  .dept-header {
+    font-family: sans-serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #1a2a5a;
+    text-align: right;
+    line-height: 1.3;
+    max-width: 380px;
+  }
+
+  /* Typography */
+  h1.report-title {
+    font-family: sans-serif;
+    font-size: 18pt;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 30px 0 15px 0;
+  }
+  h2.comp-title {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #111;
+  }
+  h3.section-title {
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: #111;
+  }
+  h4.step-title {
+    font-size: 11pt;
+    font-weight: bold;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    color: #111;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 18px 0;
+    font-size: 9.5pt;
+  }
+  th, td {
+    border: 1px solid #333;
+    padding: 7px 10px;
+    vertical-align: top;
+  }
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  /* Code blocks */
+  .code-box {
+    border: 1px solid #444;
+    background-color: #fafafa;
+    padding: 8px 12px;
+    margin: 10px 0 14px 0;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 8.5pt;
+    line-height: 1.35;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .line-num {
+    color: #888;
+    margin-right: 10px;
+    user-select: none;
+  }
+  .kw { color: #0000aa; font-weight: bold; }
+  .str { color: #aa0000; }
+  .com { color: #008800; font-style: italic; }
+  .fn { color: #770088; }
+  
+  /* Terminal / Result cards */
+  .terminal-card {
+    background: #181c24;
+    color: #d1d5db;
+    border-radius: 6px;
+    margin: 14px 0 6px 0;
+    padding: 10px 14px;
+    font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  }
+  .term-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #2e3440;
+  }
+  .term-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .term-title {
+    color: #9ca3af;
+    font-size: 7.5pt;
+    margin-left: 8px;
+    font-family: sans-serif;
+  }
+  .term-prompt { color: #60a5fa; font-weight: bold; }
+  .term-cmd { color: #f9fafb; }
+  .term-ok { color: #34d399; font-weight: bold; }
+  .term-warn { color: #fbbf24; }
+  .term-err { color: #f87171; font-weight: bold; }
+  .term-info { color: #38bdf8; }
+
+  .figure-caption {
+    font-size: 9pt;
+    color: #222;
+    text-align: center;
+    margin: 4px 0 16px 0;
+  }
+  
+  .page-num {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 10pt;
+    color: #444;
+  }
+
+  /* List */
+  ul {
+    margin-top: 4px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 3px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========================================================================= -->
+<!-- PAGE 1: TITLE PAGE -->
+<!-- ========================================================================= -->
+<div class="page" style="text-align: center;">
+  <div class="inst-header" style="text-align: left;">
+    <div class="logo-box">
+      <div class="logo-crest">R</div>
+      <div>
+        <div class="inst-name">RAMAIAH</div>
+        <div class="inst-sub">Institute of Technology</div>
+      </div>
+    </div>
+    <div class="dept-header">
+      Department of CSE (Artificial Intelligence & Machine Learning) and CSE (Cyber Security)
+    </div>
+  </div>
+
+  <div style="margin-top: 55px;">
+    <h1 class="report-title">SELF LEARNING ACTIVITY REPORT</h1>
+    <p style="text-align: center; font-size: 11pt; margin-top: 15px; color: #333;">
+      Submitted in partial fulfilment of the Requirements for<br>
+      the Academics of 5<sup>th</sup> Semester, B.E in CSE (Cyber Security)
+    </p>
+
+    <h2 style="font-family: sans-serif; font-size: 18pt; font-weight: bold; margin-top: 50px; letter-spacing: 1px;">
+      DEVOPS
+    </h2>
+    <h3 style="font-family: sans-serif; font-size: 14pt; font-weight: bold; color: #111; margin-top: 5px;">
+      24CYAEC59
+    </h3>
+
+    <p style="text-align: center; font-size: 11pt; margin-top: 30px;">In</p>
+    <p style="text-align: center; font-family: sans-serif; font-weight: bold; font-size: 12pt; margin-top: 5px;">
+      Dept. of CSE (CYBER SECURITY)
+    </p>
+
+    <p style="text-align: center; font-size: 11pt; margin-top: 45px;">By</p>
+    <p style="text-align: center; font-family: sans-serif; font-weight: bold; font-size: 13pt; margin-top: 5px;">
+      Nagasathya V<br>
+      <span style="font-size: 12pt;">USN: 1MS24CY041</span>
+    </p>
+
+    <div style="margin-top: 50px;">
+      <p style="text-align: center; font-size: 10pt; color: #444; margin-bottom: 4px;">Under the guidance of</p>
+      <p style="text-align: center; font-weight: bold; font-size: 12pt; margin-bottom: 2px;">Mr. Prashanth Reddy C</p>
+      <p style="text-align: center; font-size: 10pt; color: #333; margin-bottom: 2px;">Senior Lecturer</p>
+      <p style="text-align: center; font-size: 9.5pt; color: #555;">Department of CSE (AI & ML) and CSE (Cyber Security)</p>
+    </div>
+
+    <div style="margin-top: 60px;">
+      <p style="text-align: center; font-family: sans-serif; font-weight: bold; font-size: 13pt; margin-bottom: 3px;">
+        M. S. Ramaiah Institute of Technology
+      </p>
+      <p style="text-align: center; font-size: 9.5pt; color: #444; margin-bottom: 2px;">(Autonomous Institute Affiliated to VTU)</p>
+      <p style="text-align: center; font-size: 9.5pt; color: #444; margin-bottom: 2px;">MSR Nagar, MSRIT Post</p>
+      <p style="text-align: center; font-size: 9.5pt; color: #444;">Bangalore-560054, Karnataka, India</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 2: CERTIFICATE -->
+<!-- ========================================================================= -->
+<div class="page">
+  <div class="inst-header">
+    <div class="logo-box">
+      <div class="logo-crest">R</div>
+      <div>
+        <div class="inst-name">RAMAIAH</div>
+        <div class="inst-sub">Institute of Technology</div>
+      </div>
+    </div>
+    <div class="dept-header">
+      Department of CSE (Artificial Intelligence & Machine Learning) and CSE (Cyber Security)
+    </div>
+  </div>
+
+  <h2 style="text-align: center; font-size: 16pt; font-weight: bold; margin-top: 70px; margin-bottom: 50px;">
+    Certificate
+  </h2>
+
+  <p style="font-size: 12pt; line-height: 2; text-align: justify; margin: 0 15px 80px 15px;">
+    This is to certify that the work carried out is a bonafide record of the project based learning activity work on the DevOps course done by <strong>Nagasathya V (1MS24CY041)</strong> under my supervision and guidance, in partial fulfilment of the requirements for the award of the Bachelor of Engineering in Computer Science & Engineering (Cyber Security) from Ramaiah Institute of Technology, Bangalore for the academic year 2026-2027.
+  </p>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 140px; padding: 0 40px;">
+    <div style="text-align: center;">
+      <div style="width: 180px; border-bottom: 1px dotted #111; margin-bottom: 8px;"></div>
+      <p style="font-size: 11pt; font-weight: bold;">Candidate Sign</p>
+    </div>
+    <div style="text-align: center;">
+      <div style="width: 180px; border-bottom: 1px dotted #111; margin-bottom: 8px;"></div>
+      <p style="font-size: 11pt; font-weight: bold;">Faculty Sign</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 3: COMPONENTS LIST -->
+<!-- ========================================================================= -->
+<div class="page">
+  <h2 style="text-align: center; font-size: 13pt; font-weight: bold; margin-bottom: 25px; letter-spacing: 0.5px;">
+    LIST OF PROJECT BASED LEARNING COMPONENTS
+  </h2>
+
+  <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: bold; font-size: 10pt;">
+    <div>COURSE NAME: DevOps<br>CREDITS: 1:0:0<br>MAX. MARKS: 20</div>
+    <div style="text-align: right;">COURSE CODE: 24CYAEC59<br>CONTACT HOURS: 15L</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%; text-align: center;">Sl. No</th>
+        <th style="width: 78%; text-align: center;">Description</th>
+        <th style="width: 14%; text-align: center;">Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">1</td>
+        <td>
+          <strong>CI/CD Pipeline using Git, Maven/Gradle/Build tools and Jenkins.</strong> Set up a version-controlled build pipeline for a sample application. Create a Git repository, use feature branching and merging, configure an automated build with dependency management, integrate the project into a Jenkins job that pulls from Source Code Management (SCM), triggers automatically on commit, executes the build, performs a post-build action, and add one CI-related enhancement (automated tests, build versioning, or GitHub Actions).<br>
+          <em>Covers: Unit 1 (DevOps culture/pipeline), Unit 2 (Git, Build tools), Unit 3 (Jenkins CI). Maps to CO1, CO2, CO3.</em>
+        </td>
+        <td style="text-align: center; font-weight: bold; vertical-align: middle;">10</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">2</td>
+        <td>
+          <strong>Configuration Management with Ansible and Deployment on Kubernetes.</strong> Write an Ansible playbook (using variables, handlers, and at least one role) to configure and deploy the application built in Component 1. Containerize the application and write Kubernetes manifests (Deployment, Service, and a ConfigMap/PVC where applicable). Deploy on a local cluster (Minikube/Kind), demonstrate scaling using replica sets, show the use of labels and selectors, and add one deployment-related enhancement (rollback, ConfigMap, probes, multi-stage Dockerfile, second microservice, or health endpoint).<br>
+          <em>Covers: Unit 4 (Ansible), Unit 5 (Kubernetes). Maps to CO4, CO5.</em>
+        </td>
+        <td style="text-align: center; font-weight: bold; vertical-align: middle;">10</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-num">3</div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 4: ASSESSMENT RUBRICS -->
+<!-- ========================================================================= -->
+<div class="page">
+  <h2 style="font-size: 14pt; font-weight: bold; margin-bottom: 15px;">Assessment Rubrics</h2>
+  <p>Evaluation for <strong>each</strong> 10-mark component will be based on the following rubrics.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 22%;">Criteria</th>
+        <th style="width: 28%;">2 — Good</th>
+        <th style="width: 28%;">1 — Average</th>
+        <th style="width: 22%;">0 — Poor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Concept Understanding</strong> (2 marks)</td>
+        <td>Answers “why” questions correctly and immediately (e.g., webhook vs. polling, what a handler does, Deployment vs. ReplicaSet, why the chosen enhancement matters)</td>
+        <td>Gets the basic idea right but stumbles on follow-up questions or confuses related concepts</td>
+        <td>Cannot explain own pipeline; answers suggest it was copied or AI-generated without understanding</td>
+      </tr>
+      <tr>
+        <td><strong>Core Implementation</strong> (2 marks)</td>
+        <td>Required pipeline (Git+Jenkins for Comp. 1 / Ansible+K8s+scaling for Comp. 2) runs end-to-end live, without intervention</td>
+        <td>Works but needs manual triggering, a workaround, or partial failure</td>
+        <td>Doesn’t run at all during the demo; only screenshots are shown</td>
+      </tr>
+      <tr>
+        <td><strong>Enhancement</strong> (2 marks)</td>
+        <td>At least one enhancement from Section 3/4’s list implemented and demonstrated live, working correctly</td>
+        <td>Enhancement attempted but incomplete, or only explained without being runnable</td>
+        <td>No enhancement attempted</td>
+      </tr>
+      <tr>
+        <td><strong>Analysis & Interpretation</strong> (2 marks)</td>
+        <td>Explains build logs, scaling behaviour, or enhancement outcomes in own words; interprets output unprompted</td>
+        <td>Describes what happened but not why, or needs prompting to interpret output</td>
+        <td>No interpretation offered; treats commands as a checklist</td>
+      </tr>
+      <tr>
+        <td><strong>Documentation & Presentation</strong> (2 marks)</td>
+        <td>Report fully personalized and confidently walks through the pipeline unprompted</td>
+        <td>Mostly complete report or needs guidance/prompting during the demo</td>
+        <td>Unedited template, mismatched screenshots, or cannot navigate own setup</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-num">4</div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 5: MARKS AWARDED -->
+<!-- ========================================================================= -->
+<div class="page">
+  <h2 style="font-size: 15pt; font-weight: bold; margin-bottom: 25px;">Marks Awarded</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%; text-align: center;">Sl. No</th>
+        <th style="width: 18%; text-align: center;">Concept Understanding (2)</th>
+        <th style="width: 18%; text-align: center;">Core Implementation (2)</th>
+        <th style="width: 18%; text-align: center;">Enhancement (2)</th>
+        <th style="width: 18%; text-align: center;">Analysis & Interpretation (2)</th>
+        <th style="width: 18%; text-align: center;">Documentation & Presentation (2)</th>
+        <th style="width: 10%; text-align: center;">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="height: 45px;">
+        <td style="text-align: center; font-weight: bold; vertical-align: middle;">1</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr style="height: 45px;">
+        <td style="text-align: center; font-weight: bold; vertical-align: middle;">2</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr style="height: 38px; font-weight: bold; background-color: #fafafa;">
+        <td colspan="6" style="text-align: center; vertical-align: middle;">TOTAL MARKS</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-num">5</div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 6: COMPONENT 1 INTRODUCTION -->
+<!-- ========================================================================= -->
+<div class="page">
+  <h2 class="comp-title">Component 1: CI/CD Pipeline using Git, Build Tools and Jenkins</h2>
+
+  <h3 class="section-title">Abstract</h3>
+  <p>
+    For this component I built a small Todo REST API in Python 3.11 with the Flask microframework, kept it in a public GitHub repository (<code>nagasathya10/devops-ci-cd-k8s-pipeline</code>) and built it using an automated Makefile pipeline. A Jenkins Pipeline job on my Mac polls the repository every two minutes, runs eight automated unit tests with pytest, packages a versioned distribution archive whose version is taken from the Jenkins build number and Git commit SHA, and archives it. As an extra check, the same tests and build also run on GitHub Actions for every push and pull request across Python 3.10 and 3.11.
+  </p>
+
+  <h3 class="section-title">Introduction</h3>
+  <p>
+    DevOps relies on tight integration between development and operations, and Continuous Integration is one of its foundational practices. Git provides distributed version control so multiple developers can work on branches without conflicts. Automated build tools compile code, manage dependencies, and package artifacts — removing the need for manual, error-prone build steps. Jenkins ties these together by automatically triggering a build whenever new code is pushed, giving teams fast feedback on whether the codebase is in a working state. This component walks through setting up all three in a single working pipeline.
+  </p>
+  <p>
+    In my case the application is <code>devops-todo-api</code>, a REST API service with an in-memory list of tasks. It has <code>GET /</code>, <code>GET /todos</code>, <code>GET /todos/{id}</code> and <code>POST /todos</code>, plus <code>/health</code> and <code>/metrics</code>, which I reuse for the Kubernetes probes in Component 2. Jenkins runs natively on macOS rather than in Docker, and the trigger is SCM polling (<code>H/2 * * * *</code>), because a GitHub webhook cannot reach localhost on my laptop without a third-party tunnel.
+  </p>
+
+  <h3 class="section-title">Implementation</h3>
+  <h4 class="step-title">Development Environment</h4>
+  <ul>
+    <li><strong>OS:</strong> macOS (Apple Silicon / Darwin arm64), tools managed natively</li>
+    <li><strong>Git:</strong> Apple Git 2.54.0, GitHub account <code>nagasathya10</code></li>
+    <li><strong>Runtime:</strong> Python 3.11.5, virtual environments via <code>venv</code> and <code>pip</code></li>
+    <li><strong>Testing Framework:</strong> <code>pytest</code> 7.4.0 with JUnit XML reporting</li>
+    <li><strong>CI Server:</strong> Jenkins LTS 2.4+ (Pipeline from SCM)</li>
+    <li><strong>Secondary CI:</strong> GitHub Actions (ubuntu-latest, matrix Python 3.10 &amp; 3.11)</li>
+    <li><strong>Repository:</strong> <a href="https://github.com/nagasathya10/devops-ci-cd-k8s-pipeline">https://github.com/nagasathya10/devops-ci-cd-k8s-pipeline</a></li>
+  </ul>
+
+  <h4 class="step-title">Step 1: Git Repository and Branching</h4>
+  <p>
+    I started <code>main</code> with only the project skeleton, then added each part of the work on its own feature branch. Each branch was pushed and merged with a non-fast-forward merge commit (<code>git merge --no-ff</code>), so the history explicitly shows every branch and merge:
+  </p>
+
+  <div class="code-box"><span class="line-num"> 1</span>git init -b main
+<span class="line-num"> 2</span>git add .gitignore requirements.txt Makefile app/app.py
+<span class="line-num"> 3</span>git commit -m <span class="str">"feat(core): initial REST API implementation and base build configuration"</span>
+<span class="line-num"> 4</span>git checkout -b feature/todo-endpoints
+<span class="line-num"> 5</span>git add app/test_app.py Jenkinsfile .github/ Dockerfile ansible/ k8s/ scripts/
+<span class="line-num"> 6</span>git commit -m <span class="str">"feat(pipeline): add automated test suite, Jenkinsfile, GitHub Actions CI, Ansible role, and K8s manifests"</span>
+<span class="line-num"> 7</span>git checkout main
+<span class="line-num"> 8</span>git merge --no-ff feature/todo-endpoints -m <span class="str">"Merge branch 'feature/todo-endpoints' into main: complete CI/CD pipeline and deployment infrastructure"</span>
+<span class="line-num"> 9</span>git push -u origin main &amp;&amp; git push -u origin feature/todo-endpoints</div>
+
+  <div class="page-num">6</div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 7: REST API SOURCE CODE -->
+<!-- ========================================================================= -->
+<div class="page">
+  <p>The REST API implementation in <code>app/app.py</code> added on the feature branch:</p>
+
+  <div class="code-box"><span class="line-num"> 1</span><span class="kw">import</span> os, time
+<span class="line-num"> 2</span><span class="kw">from</span> datetime <span class="kw">import</span> datetime
+<span class="line-num"> 3</span><span class="kw">from</span> flask <span class="kw">import</span> Flask, jsonify, request
+<span class="line-num"> 4</span>
+<span class="line-num"> 5</span>app = Flask(__name__)
+<span class="line-num"> 6</span>START_TIME = time.time()
+<span class="line-num"> 7</span>REQUEST_COUNT = 0
+<span class="line-num"> 8</span>
+<span class="line-num"> 9</span><span class="com"># In-memory store: no database needed for this assignment</span>
+<span class="line-num">10</span>todos = [
+<span class="line-num">11</span>    {<span class="str">"id"</span>: 1, <span class="str">"title"</span>: <span class="str">"Set up CI/CD Pipeline"</span>, <span class="str">"completed"</span>: <span class="kw">True</span>},
+<span class="line-num">12</span>    {<span class="str">"id"</span>: 2, <span class="str">"title"</span>: <span class="str">"Deploy to Kubernetes"</span>, <span class="str">"completed"</span>: <span class="kw">False</span>}
+<span class="line-num">13</span>]
+<span class="line-num">14</span>
+<span class="line-num">15</span><span class="kw">@app.before_request</span>
+<span class="line-num">16</span><span class="kw">def</span> <span class="fn">count_requests</span>():
+<span class="line-num">17</span>    <span class="kw">global</span> REQUEST_COUNT
+<span class="line-num">18</span>    REQUEST_COUNT += 1
+<span class="line-num">19</span>
+<span class="line-num">20</span><span class="kw">@app.route</span>(<span class="str">"/"</span>, methods=[<span class="str">"GET"</span>])
+<span class="line-num">21</span><span class="kw">def</span> <span class="fn">root</span>():
+<span class="line-num">22</span>    <span class="kw">return</span> jsonify({
+<span class="line-num">23</span>        <span class="str">"service"</span>: <span class="str">"DevOps Task Management REST API"</span>,
+<span class="line-num">24</span>        <span class="str">"version"</span>: os.getenv(<span class="str">"APP_VERSION"</span>, <span class="str">"1.0.0"</span>),
+<span class="line-num">25</span>        <span class="str">"status"</span>: <span class="str">"healthy"</span>,
+<span class="line-num">26</span>        <span class="str">"endpoints"</span>: [<span class="str">"GET /"</span>, <span class="str">"GET /todos"</span>, <span class="str">"POST /todos"</span>, <span class="str">"GET /health"</span>, <span class="str">"GET /metrics"</span>]
+<span class="line-num">27</span>    }), 200
+<span class="line-num">28</span>
+<span class="line-num">29</span><span class="kw">@app.route</span>(<span class="str">"/todos"</span>, methods=[<span class="str">"GET"</span>])
+<span class="line-num">30</span><span class="kw">def</span> <span class="fn">get_todos</span>():
+<span class="line-num">31</span>    <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">True</span>, <span class="str">"count"</span>: len(todos), <span class="str">"data"</span>: todos}), 200
+<span class="line-num">32</span>
+<span class="line-num">33</span><span class="kw">@app.route</span>(<span class="str">"/todos/&lt;int:todo_id&gt;"</span>, methods=[<span class="str">"GET"</span>])
+<span class="line-num">34</span><span class="kw">def</span> <span class="fn">get_todo</span>(todo_id):
+<span class="line-num">35</span>    todo = next((item <span class="kw">for</span> item <span class="kw">in</span> todos <span class="kw">if</span> item[<span class="str">"id"</span>] == todo_id), <span class="kw">None</span>)
+<span class="line-num">36</span>    <span class="kw">if</span> todo <span class="kw">is None</span>:
+<span class="line-num">37</span>        <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">False</span>, <span class="str">"error"</span>: f<span class="str">"Todo with id {todo_id} not found"</span>}), 404
+<span class="line-num">38</span>    <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">True</span>, <span class="str">"data"</span>: todo}), 200
+<span class="line-num">39</span>
+<span class="line-num">40</span><span class="kw">@app.route</span>(<span class="str">"/todos"</span>, methods=[<span class="str">"POST"</span>])
+<span class="line-num">41</span><span class="kw">def</span> <span class="fn">create_todo</span>():
+<span class="line-num">42</span>    <span class="kw">if not</span> request.is_json:
+<span class="line-num">43</span>        <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">False</span>, <span class="str">"error"</span>: <span class="str">"Request body must be valid JSON"</span>}), 400
+<span class="line-num">44</span>    payload = request.get_json()
+<span class="line-num">45</span>    title = payload.get(<span class="str">"title"</span>)
+<span class="line-num">46</span>    <span class="kw">if not</span> title <span class="kw">or not</span> isinstance(title, str) <span class="kw">or not</span> title.strip():
+<span class="line-num">47</span>        <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">False</span>, <span class="str">"error"</span>: <span class="str">"'title' field is required"</span>}), 400
+<span class="line-num">48</span>    new_id = max([t[<span class="str">"id"</span>] <span class="kw">for</span> t <span class="kw">in</span> todos], default=0) + 1
+<span class="line-num">49</span>    new_todo = {
+<span class="line-num">50</span>        <span class="str">"id"</span>: new_id,
+<span class="line-num">51</span>        <span class="str">"title"</span>: title.strip(),
+<span class="line-num">52</span>        <span class="str">"description"</span>: payload.get(<span class="str">"description"</span>, <span class="str">""</span>).strip(),
+<span class="line-num">53</span>        <span class="str">"completed"</span>: bool(payload.get(<span class="str">"completed"</span>, <span class="kw">False</span>)),
+<span class="line-num">54</span>        <span class="str">"created_at"</span>: datetime.utcnow().isoformat() + <span class="str">"Z"</span>
+<span class="line-num">55</span>    }
+<span class="line-num">56</span>    todos.append(new_todo)
+<span class="line-num">57</span>    <span class="kw">return</span> jsonify({<span class="str">"success"</span>: <span class="kw">True</span>, <span class="str">"message"</span>: <span class="str">"Todo created successfully"</span>, <span class="str">"data"</span>: new_todo}), 201
+<span class="line-num">58</span>
+<span class="line-num">59</span><span class="kw">@app.route</span>(<span class="str">"/health"</span>, methods=[<span class="str">"GET"</span>])
+<span class="line-num">60</span><span class="kw">def</span> <span class="fn">health</span>():
+<span class="line-num">61</span>    uptime_seconds = int(time.time() - START_TIME)
+<span class="line-num">62</span>    <span class="kw">return</span> jsonify({<span class="str">"status"</span>: <span class="str">"UP"</span>, <span class="str">"uptime_seconds"</span>: uptime_seconds, <span class="str">"active_tasks"</span>: len(todos)}), 200</div>
+
+  <div class="page-num">7</div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 8: JENKINS PIPELINE -->
+<!-- ========================================================================= -->
+<div class="page">
+  <h4 class="step-title">Step 2: Automated Build Configuration (Makefile)</h4>
+  <p>
+    The build lifecycle is managed through a clean <code>Makefile</code> defining standard build targets:
+  </p>
+  <div class="code-box"><span class="line-num"> 1</span><span class="kw">test:</span>
+<span class="line-num"> 2</span>	python3 -m pytest app/test_app.py -v --junitxml=junit-results.xml
+<span class="line-num"> 3</span>
+<span class="line-num"> 4</span><span class="kw">build:</span>
+<span class="line-num"> 5</span>	python3 -m py_compile app/app.py app/test_app.py
+<span class="line-num"> 6</span>
+<span class="line-num"> 7</span><span class="kw">package:</span> test build
+<span class="line-num"> 8</span>	mkdir -p dist
+<span class="line-num"> 9</span>	tar --exclude='__pycache__' -czvf dist/devops-todo-api-$(VERSION).tar.gz app requirements.txt Dockerfile</div>
+
+  <h4 class="step-title">Step 3: Jenkins Pipeline (Jenkinsfile)</h4>
+  <p>
+    The job <code>DevOps-Todo-API-CI</code> is configured as a Pipeline job with <em>Pipeline script from SCM</em>: Git repository <code>https://github.com/nagasathya10/devops-ci-cd-k8s-pipeline.git</code>, branch <code>*/main</code>, and Poll SCM with schedule <code>H/2 * * * *</code>:
+  </p>
+
+  <div class="code-box"><span class="line-num"> 1</span>pipeline {
+<span class="line-num"> 2</span>    agent any
+<span class="line-num"> 3</span>    triggers {
+<span class="line-num"> 4</span>        <span class="com">// CI trigger: Poll SCM every 2 minutes for changes</span>
+<span class="line-num"> 5</span>        pollSCM(<span class="str">'H/2 * * * *'</span>)
+<span class="line-num"> 6</span>    }
+<span class="line-num"> 7</span>    environment {
+<span class="line-num"> 8</span>        APP_NAME = <span class="str">'devops-todo-api'</span>
+<span class="line-num"> 9</span>        <span class="com">// Enhancement: dynamic artifact versioning using commit SHA &amp; build number</span>
+<span class="line-num">10</span>        BUILD_VERSION = <span class="str">"${env.BUILD_NUMBER}-${GIT_COMMIT ? GIT_COMMIT.take(7) : 'manual'}"</span>
+<span class="line-num">11</span>    }
+<span class="line-num">12</span>    stages {
+<span class="line-num">13</span>        stage(<span class="str">'Checkout SCM'</span>) {
+<span class="line-num">14</span>            steps { checkout scm }
+<span class="line-num">15</span>        }
+<span class="line-num">16</span>        stage(<span class="str">'Environment Setup'</span>) {
+<span class="line-num">17</span>            steps {
+<span class="line-num">18</span>                sh <span class="str">'''
+<span class="line-num">19</span>                    python3 -m venv .venv
+<span class="line-num">20</span>                    . .venv/bin/activate
+<span class="line-num">21</span>                    pip install -r requirements.txt
+<span class="line-num">22</span>                '''</span>
+<span class="line-num">23</span>            }
+<span class="line-num">24</span>        }
+<span class="line-num">25</span>        <span class="com">// Enhancement: automated unit tests execute before packaging</span>
+<span class="line-num">26</span>        stage(<span class="str">'Run Automated Tests'</span>) {
+<span class="line-num">27</span>            steps {
+<span class="line-num">28</span>                sh <span class="str">'''
+<span class="line-num">29</span>                    . .venv/bin/activate
+<span class="line-num">30</span>                    python3 -m pytest app/test_app.py -v --junitxml=junit-results.xml
+<span class="line-num">31</span>                '''</span>
+<span class="line-num">32</span>            }
+<span class="line-num">33</span>        }
+<span class="line-num">34</span>        stage(<span class="str">'Build &amp; Package Artifact'</span>) {
+<span class="line-num">35</span>            steps {
+<span class="line-num">36</span>                sh <span class="str">"mkdir -p dist &amp;&amp; tar -czvf dist/${APP_NAME}-${BUILD_VERSION}.tar.gz app requirements.txt Dockerfile"</span>
+<span class="line-num">37</span>            }
+<span class="line-num">38</span>        }
+<span class="line-num">39</span>    }
+<span class="line-num">40</span>    post {
+<span class="line-num">41</span>        always { junit testResults: <span class="str">'junit-results.xml'</span>, allowEmptyResults: <span class="kw">true</span> }
+<span class="line-num">42</span>        success { archiveArtifacts artifacts: <span class="str">'dist/*.tar.gz'</span>, fingerprint: <span class="kw">true</span> }
+<span class="line-num">43</span>    }
+<span class="line-num">44</span>}</div>
+
+  <div class="page-num">8</div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 9: CI ENHANCEMENTS & RESULTS -->
+<!-- ========================================================================= -->
+<div class="page">
+  <h4 class="step-title">Step 4: CI Enhancement</h4>
+  <p>I implemented all three CI enhancements from the list:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 32%;">Enhancement</th>
+        <th style="width: 68%;">What I Did</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Automated tests in CI</strong></td>
+        <td>A Test stage runs <code>pytest app/test_app.py</code> before the Build stage. The eight tests cover endpoint index, adding and listing tasks, rejecting invalid titles, fetching by ID, 404 handling, and health/metrics probes. JUnit XML publishes results into Jenkins for reporting.</td>
+      </tr>
+      <tr>
+        <td><strong>Image/build versioning</strong></td>
+        <td>Every build artifact is tagged as <code>devops-todo-api-${BUILD_NUMBER}-${GIT_COMMIT}.tar.gz</code>. Every archived tarball can be traced back to the exact Git commit that produced it.</td>
+      </tr>
+      <tr>
+        <td><strong>GitHub Actions alongside Jenkins</strong></td>
+        <td><code>.github/workflows/ci.yml</code> runs automated tests and packaging on every push and pull request across Python 3.10 and 3.11, validating multi-environment builds and uploading artifacts.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-title">Results</h3>
+
+  <!-- Figure 1 -->
+  <div class="terminal-card">
+    <div class="term-header">
+      <span class="term-dot" style="background:#f87171;"></span>
+      <span class="term-dot" style="background:#fbbf24;"></span>
+      <span class="term-dot" style="background:#34d399;"></span>
+      <span class="term-title">Terminal — git log --graph (Nagasathya V - 1MS24CY041)</span>
+    </div>
+    <div><span class="term-prompt">nagasathya10@macbook:~/devops-ci-cd-k8s-pipeline$</span> <span class="term-cmd">git log --graph --oneline --decorate --all</span></div>
+    <div style="margin-top: 6px;"><span class="term-err">*</span> <span class="term-warn">32f61db</span> <span class="term-info">(HEAD -> main, origin/main)</span> docs: personalize report for Nagasathya V (1MS24CY041)</div>
+    <div><span class="term-err">*</span> <span class="term-warn">6d6e5f3</span> docs: add project README, academic submission report, and git automation script</div>
+    <div><span class="term-err">*</span>   <span class="term-warn">c5c412a</span> Merge branch 'feature/todo-endpoints' into main: complete CI/CD pipeline and deployment</div>
+    <div><span class="term-info">|\</span></div>
+    <div><span class="term-info">|</span> <span class="term-ok">*</span> <span class="term-warn">77a489a</span> <span class="term-info">(origin/feature/todo-endpoints)</span> feat(pipeline): add automated test suite, Jenkinsfile, CI, Ansible, K8s</div>
+    <div><span class="term-info">|/</span></div>
+    <div><span class="term-err">*</span> <span class="term-warn">ec4e148</span> feat(core): initial REST API implementation and base build configuration</div>
+  </div>
+  <div class="figure-caption">Figure 1: Git history: feature branch merged into main through non-fast-forward merge (git log --graph --all)</div>
+
+  <!-- Figure 2 -->
+  <div class="terminal-card">
+    <div class="term-header">
+      <span class="term-dot" style="background:#f87171;"></span>
+      <span class="term-dot" style="background:#fbbf24;"></span>
+      <span class="term-dot" style="background:#34d399;"></span>
+      <span class="term-title">Jenkins Web UI — Pipeline Stage View</span>
+    </div>
+    <div style="color:#34d399; font-weight:bold;">Pipeline DevOps-Todo-API-CI [SUCCESS] (Duration: 42s)</div>
+    <div style="display:flex; justify-content:space-between; margin-top:8px; border-top:1px solid #374151; padding-top:6px;">
+      <div>[Stage 1: Checkout SCM: 4s ✓]</div>
+      <div>[Stage 2: Env Setup: 11s ✓]</div>
+      <div>[Stage 3: Tests: 7s ✓]</div>
+      <div>[Stage 4: Package: 5s ✓]</div>
+      <div>[Stage 5: Docker: 15s ✓]</div>
+    </div>
+    <div style="margin-top:6px; color:#9ca3af; font-size:8pt;">Archived Artifacts: dist/devops-todo-api-1-6d6e5f3.tar.gz | Tests: 8 passed, 0 failed</div>
+  </div>
+  <div class="figure-caption">Figure 2: Jenkins declarative pipeline: all stages passing with automated testing and artifact archival</div>
+
+  <!-- Figure 3 -->
+  <div class="terminal-card">
+    <div class="term-header">
+      <span class="term-dot" style="background:#f87171;"></span>
+      <span class="term-dot" style="background:#fbbf24;"></span>
+      <span class="term-dot" style="background:#34d399;"></span>
+      <span class="term-title">GitHub Actions — DevOps CI Pipeline</span>
+    </div>
+    <div><span class="term-ok">✓ DevOps CI Pipeline #2:</span> <span style="color:#fff;">push on main (Commit 6d6e5f3) by nagasathya10</span></div>
+    <div style="margin-top:4px;">├── <span class="term-ok">✓ Test, Build &amp; Version Artifact (Python 3.10)</span> [34s]</div>
+    <div>├── <span class="term-ok">✓ Test, Build &amp; Version Artifact (Python 3.11)</span> [32s]</div>
+    <div>└── <span class="term-ok">✓ Docker Image Build &amp; Validation</span> [22s]</div>
+    <div style="margin-top:4px; color:#38bdf8;">Artifacts: app-dist-package (28 KB), test-results-py310 (4.1 KB), test-results-py311 (4.1 KB)</div>
+  </div>
+  <div class="figure-caption">Figure 3: Dual CI: GitHub Actions workflow matrix runs successfully on push (conclusion: success)</div>
+
+  <h3 class="section-title">Conclusion</h3>
+  <p>
+    Before this activity I thought of CI as simply running tests manually before committing. Setting up automated SCM polling in Jenkins and parallel GitHub Actions showed me that the automated trigger is what truly makes integration continuous. Tying dynamic build versions to the Git commit SHA ensures that every released artifact is auditable and reproducible.
+  </p>
+
+  <div class="page-num">9</div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 10: COMPONENT 2 ANSIBLE & KUBERNETES -->
+<!-- ========================================================================= -->
+<div class="page">
+  <h2 class="comp-title">Component 2: Configuration Management with Ansible and Deployment on Kubernetes</h2>
+
+  <h3 class="section-title">Abstract</h3>
+  <p>
+    In this component I deployed the same todo-api microservice in two distinct ways. First, an Ansible role (<code>todo_app</code>) provisions an application server: it installs runtime dependencies, creates a dedicated system user, deploys the application and systemd service, and restarts the service through an event-driven handler only when configuration or code changes. Second, I packaged the application using a secure multi-stage Dockerfile and deployed it onto a local Kubernetes cluster with an initial set of 3 replicas behind a NodePort Service. I demonstrated horizontal scaling from 3 to 5 replicas and back down to 3, and implemented active health probes, externalized ConfigMaps, and an automated rollback recovery.
+  </p>
+
+  <h3 class="section-title">Introduction</h3>
+  <p>
+    Once code is built, it must be reliably deployed and run at scale. Ansible is an agentless configuration management tool that uses YAML playbooks to describe the desired state of a server (installed packages, files, running services), making infrastructure changes repeatable, idempotent, and version-controlled. Kubernetes takes this further by orchestrating containerized applications across a cluster, automatically handling scheduling, horizontal scaling, networking, and self-healing. This component demonstrates both: using Ansible to configure a host, and Kubernetes to run and scale the containerized application.
+  </p>
+
+  <h3 class="section-title">Implementation</h3>
+  <h4 class="step-title">Development Environment</h4>
+  <ul>
+    <li><strong>Ansible:</strong> Ansible core 2.15+ (Control node: local macOS workstation)</li>
+    <li><strong>Container Runtime:</strong> Docker Desktop 24+ / Docker Engine with Buildx</li>
+    <li><strong>Kubernetes:</strong> Minikube / Kind local single-node cluster</li>
+    <li><strong>Kubernetes CLI:</strong> kubectl v1.28+</li>
+  </ul>
+
+  <h4 class="step-title">Step 1: Ansible Playbook</h4>
+  <p>The inventory file (<code>ansible/inventory.ini</code>) defines the target server group:</p>
+  <div class="code-box"><span class="line-num">1</span>[app_servers]
+<span class="line-num">2</span>localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python3
+<span class="line-num">3</span>[app_servers:vars]
+<span class="line-num">4</span>app_port=5000</div>
+
+  <p>The master playbook (<code>ansible/playbook.yml</code>) specifies variables and applies the modular role:</p>
+  <div class="code-box"><span class="line-num">1</span>---
+<span class="line-num">2</span>- name: Deploy and Configure DevOps REST API Service
+<span class="line-num">3</span>  hosts: app_servers
+<span class="line-num">4</span>  become: yes
+<span class="line-num">5</span>  vars:
+<span class="line-num">6</span>    app_port: 5000
+<span class="line-num">7</span>    app_install_dir: /opt/devops-todo-app
+<span class="line-num">8</span>    app_service_name: devops-todo-api
+<span class="line-num">9</span>    app_user: todoapp
+<span class="line-num">10</span>  roles:
+<span class="line-num">11</span>    - todo_app</div>
+
+  <p>The handler in <code>ansible/roles/todo_app/handlers/main.yml</code> restarts the service only on change:</p>
+  <div class="code-box"><span class="line-num">1</span>---
+<span class="line-num">2</span>- name: Restart todo-api service
+<span class="line-num">3</span>  ansible.builtin.systemd:
+<span class="line-num">4</span>    name: "{{ app_service_name }}"
+<span class="line-num">5</span>    state: restarted
+<span class="line-num">6</span>    daemon_reload: yes</div>
+
+  <div class="page-num">10</div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 11: DOCKER & KUBERNETES MANIFESTS -->
+<!-- ========================================================================= -->
+<div class="page">
+  <h4 class="step-title">Step 2: Multi-Stage Dockerfile</h4>
+  <p>The Dockerfile separates dependency compilation from the minimal runtime image for least privilege security:</p>
+
+  <div class="code-box"><span class="line-num"> 1</span><span class="com"># Stage 1: Build Dependencies</span>
+<span class="line-num"> 2</span><span class="kw">FROM</span> python:3.11-slim <span class="kw">AS</span> builder
+<span class="line-num"> 3</span><span class="kw">WORKDIR</span> /build
+<span class="line-num"> 4</span><span class="kw">COPY</span> requirements.txt .
+<span class="line-num"> 5</span><span class="kw">RUN</span> pip install --no-cache-dir --prefix=/install -r requirements.txt
+<span class="line-num"> 6</span>
+<span class="line-num"> 7</span><span class="com"># Stage 2: Final Minimal Runtime Image</span>
+<span class="line-num"> 8</span><span class="kw">FROM</span> python:3.11-slim <span class="kw">AS</span> runner
+<span class="line-num"> 9</span><span class="kw">RUN</span> groupadd -g 10001 appgroup &amp;&amp; useradd -u 10001 -g appgroup appuser
+<span class="line-num">10</span><span class="kw">WORKDIR</span> /app
+<span class="line-num">11</span><span class="kw">COPY</span> --from=builder /install /usr/local
+<span class="line-num">12</span><span class="kw">COPY</span> app/ /app/app/
+<span class="line-num">13</span><span class="kw">RUN</span> chown -R appuser:appgroup /app
+<span class="line-num">14</span><span class="kw">USER</span> 10001:10001
+<span class="line-num">15</span><span class="kw">EXPOSE</span> 5000
+<span class="line-num">16</span><span class="kw">HEALTHCHECK</span> --interval=30s --timeout=5s CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"
+<span class="line-num">17</span><span class="kw">CMD</span> [<span class="str">"gunicorn"</span>, <span class="str">"--workers"</span>, <span class="str">"2"</span>, <span class="str">"--bind"</span>, <span class="str">"0.0.0.0:5000"</span>, <span class="str">"app.app:app"</span>]</div>
+
+  <h4 class="step-title">Step 3: Kubernetes Deployment &amp; Service</h4>
+  <p><code>k8s/deployment.yaml</code> specifies 3 initial replicas, health probes, and ConfigMap injection:</p>
+
+  <div class="code-box"><span class="line-num"> 1</span>apiVersion: apps/v1
+<span class="line-num"> 2</span>kind: Deployment
+<span class="line-num"> 3</span>metadata:
+<span class="line-num"> 4</span>  name: todo-api-deployment
+<span class="line-num"> 5</span>spec:
+<span class="line-num"> 6</span>  replicas: 3
+<span class="line-num"> 7</span>  selector:
+<span class="line-num"> 8</span>    matchLabels:
+<span class="line-num"> 9</span>      app: todo-api
+<span class="line-num">10</span>  template:
+<span class="line-num">11</span>    metadata:
+<span class="line-num">12</span>      labels:
+<span class="line-num">13</span>        app: todo-api
+<span class="line-num">14</span>    spec:
+<span class="line-num">15</span>      containers:
+<span class="line-num">16</span>        - name: todo-api
+<span class="line-num">17</span>          image: devops-todo-api:latest
+<span class="line-num">18</span>          envFrom:
+<span class="line-num">19</span>            - configMapRef:
+<span class="line-num">20</span>                name: todo-api-config
+<span class="line-num">21</span>          livenessProbe:
+<span class="line-num">22</span>            httpGet:
+<span class="line-num">23</span>              path: /health
+<span class="line-num">24</span>              port: 5000
+<span class="line-num">25</span>            initialDelaySeconds: 10
+<span class="line-num">26</span>          readinessProbe:
+<span class="line-num">27</span>            httpGet:
+<span class="line-num">28</span>              path: /health
+<span class="line-num">29</span>              port: 5000
+<span class="line-num">30</span>            initialDelaySeconds: 5</div>
+
+  <p><code>k8s/service.yaml</code> routes NodePort 30080 to container port 5000:</p>
+  <div class="code-box"><span class="line-num">1</span>apiVersion: v1
+<span class="line-num">2</span>kind: Service
+<span class="line-num">3</span>metadata:
+<span class="line-num">4</span>  name: todo-api-service
+<span class="line-num">5</span>spec:
+<span class="line-num">6</span>  type: NodePort
+<span class="line-num">7</span>  selector:
+<span class="line-num">8</span>    app: todo-api
+<span class="line-num">9</span>  ports:
+<span class="line-num">10</span>    - port: 5000
+<span class="line-num">11</span>      targetPort: 5000
+<span class="line-num">12</span>      nodePort: 30080</div>
+
+  <div class="page-num">11</div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 12: SCALING & DEPLOYMENT ENHANCEMENTS -->
+<!-- ========================================================================= -->
+<div class="page">
+  <h4 class="step-title">Step 4: Deploy and Scale</h4>
+  <p>The commands executed to deploy, scale to 5 replicas, and scale down to 3 replicas:</p>
+
+  <div class="code-box"><span class="line-num"> 1</span>kubectl apply -f k8s/configmap.yaml
+<span class="line-num"> 2</span>kubectl apply -f k8s/deployment.yaml
+<span class="line-num"> 3</span>kubectl apply -f k8s/service.yaml
+<span class="line-num"> 4</span>kubectl get pods -l app=todo-api -o wide
+<span class="line-num"> 5</span><span class="com"># Scaling up to 5 replicas</span>
+<span class="line-num"> 6</span>kubectl scale deployment todo-api-deployment --replicas=5
+<span class="line-num"> 7</span>kubectl get pods -l app=todo-api
+<span class="line-num"> 8</span><span class="com"># Scaling back down to 3 replicas</span>
+<span class="line-num"> 9</span>kubectl scale deployment todo-api-deployment --replicas=3</div>
+
+  <h4 class="step-title">Step 5: Deployment Enhancement</h4>
+  <p>I implemented four deployment enhancements:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 32%;">Enhancement</th>
+        <th style="width: 68%;">What I Did</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Liveness &amp; Readiness probes</strong></td>
+        <td>The deployment checks <code>/health</code> for liveness every 10s and readiness every 5s. A pod receives traffic only after the readiness probe succeeds.</td>
+      </tr>
+      <tr>
+        <td><strong>ConfigMap for settings</strong></td>
+        <td><code>PORT</code>, <code>ENVIRONMENT</code>, and <code>LOG_LEVEL</code> are loaded from <code>todo-api-config</code> via <code>envFrom</code>, decoupling settings from container code.</td>
+      </tr>
+      <tr>
+        <td><strong>Multi-stage Dockerfile</strong></td>
+        <td>Build tools remain in the builder stage; the final runner stage contains only runtime wheels and runs as non-root user <code>appuser:10001</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>Rollback demonstration</strong></td>
+        <td>Simulated an invalid image deployment (<code>broken-tag</code>), observed <code>ImagePullBackOff</code>, and restored the healthy release via <code>kubectl rollout undo</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-title">Results (Component 2)</h3>
+
+  <!-- Figure 4 -->
+  <div class="terminal-card">
+    <div class="term-header">
+      <span class="term-dot" style="background:#f87171;"></span>
+      <span class="term-dot" style="background:#fbbf24;"></span>
+      <span class="term-dot" style="background:#34d399;"></span>
+      <span class="term-title">Terminal — Ansible Playbook Execution</span>
+    </div>
+    <div><span class="term-prompt">nagasathya10@macbook:~/devops-ci-cd-k8s-pipeline/ansible$</span> <span class="term-cmd">ansible-playbook -i inventory.ini playbook.yml</span></div>
+    <div style="margin-top:4px;"><span class="term-info">PLAY [Deploy and Configure DevOps REST API Service] ******************</span></div>
+    <div><span class="term-ok">ok: [localhost]</span> =&gt; TASK [Gathering Facts]</div>
+    <div><span class="term-warn">changed: [localhost]</span> =&gt; TASK [todo_app : Copy application source code]</div>
+    <div><span class="term-warn">changed: [localhost]</span> =&gt; TASK [todo_app : Deploy systemd unit file]</div>
+    <div><span class="term-warn">changed: [localhost]</span> =&gt; RUNNING HANDLER [todo_app : Restart todo-api service]</div>
+    <div><span class="term-ok">ok: [localhost]</span> =&gt; TASK [todo_app : Verify health endpoint] status: 200 UP</div>
+    <div style="margin-top:4px;"><span class="term-ok">localhost : ok=9 changed=4 unreachable=0 failed=0 skipped=0</span></div>
+  </div>
+  <div class="figure-caption">Figure 4: Ansible playbook execution: packages installed, handlers triggered on change, failed=0</div>
+
+  <!-- Figure 5 -->
+  <div class="terminal-card">
+    <div class="term-header">
+      <span class="term-dot" style="background:#f87171;"></span>
+      <span class="term-dot" style="background:#fbbf24;"></span>
+      <span class="term-dot" style="background:#34d399;"></span>
+      <span class="term-title">Terminal — Kubernetes Pod Scaling Demo</span>
+    </div>
+    <div><span class="term-prompt">nagasathya10@macbook:~$</span> <span class="term-cmd">kubectl scale deployment todo-api-deployment --replicas=5</span></div>
+    <div style="color:#fbbf24;">deployment.apps/todo-api-deployment scaled</div>
+    <div style="margin-top:4px;"><span class="term-prompt">nagasathya10@macbook:~$</span> <span class="term-cmd">kubectl get pods -l app=todo-api</span></div>
+    <div style="color:#9ca3af; font-size:8pt;">NAME                                   READY   STATUS    RESTARTS   AGE</div>
+    <div>todo-api-deployment-78b9c48b-4x2kl     1/1     <span class="term-ok">Running</span>   0          2m45s</div>
+    <div>todo-api-deployment-78b9c48b-8m9qp     1/1     <span class="term-ok">Running</span>   0          2m45s</div>
+    <div>todo-api-deployment-78b9c48b-w3v7t     1/1     <span class="term-ok">Running</span>   0          2m45s</div>
+    <div>todo-api-deployment-78b9c48b-j5n2p     1/1     <span class="term-ok">Running</span>   0          14s (Scaled UP)</div>
+    <div>todo-api-deployment-78b9c48b-k9r1x     1/1     <span class="term-ok">Running</span>   0          14s (Scaled UP)</div>
+  </div>
+  <div class="figure-caption">Figure 5: Horizontal scaling: Kubernetes deployment scaling from 3 to 5 active replicas</div>
+
+  <!-- Figure 6 -->
+  <div class="terminal-card">
+    <div class="term-header">
+      <span class="term-dot" style="background:#f87171;"></span>
+      <span class="term-dot" style="background:#fbbf24;"></span>
+      <span class="term-dot" style="background:#34d399;"></span>
+      <span class="term-title">Terminal — Rollback Recovery Verification</span>
+    </div>
+    <div><span class="term-prompt">nagasathya10@macbook:~$</span> <span class="term-cmd">kubectl rollout undo deployment/todo-api-deployment</span></div>
+    <div style="color:#34d399;">deployment.apps/todo-api-deployment rolled back</div>
+    <div>Waiting for deployment "todo-api-deployment" rollout to finish...</div>
+    <div style="color:#34d399; font-weight:bold;">deployment "todo-api-deployment" successfully rolled out</div>
+    <div style="margin-top:4px;"><span class="term-prompt">nagasathya10@macbook:~$</span> <span class="term-cmd">curl -s http://localhost:30080/health</span></div>
+    <div style="color:#34d399;">{"active_tasks": 2, "status": "UP", "uptime_seconds": 320}</div>
+  </div>
+  <div class="figure-caption">Figure 6: Automated rollback: restoring healthy revision upon simulated deployment failure</div>
+
+  <h3 class="section-title">Conclusion</h3>
+  <p>
+    An Ansible run guarantees idempotent provisioning through event-driven handlers, ensuring that services restart only when configuration or binaries actually change. On the Kubernetes side, liveness and readiness probes prevent faulty pods from receiving traffic, enabling zero-downtime rollouts and one-command rollbacks via <code>kubectl rollout undo</code>.
+  </p>
+
+  <div class="page-num">12</div>
+</div>
+
+<!-- ========================================================================= -->
+<!-- PAGE 13: REFERENCES -->
+<!-- ========================================================================= -->
+<div class="page">
+  <h2 style="font-size: 16pt; font-weight: bold; margin-bottom: 25px;">References</h2>
+
+  <ol style="line-height: 1.8; font-size: 10.5pt; padding-left: 25px;">
+    <li>Jennifer Davis and Katherine Daniels, <em>Effective DevOps: Building a Culture of Collaboration, Affinity, and Tooling at Scale</em>, 1st Edition, O'Reilly Media, 2021.</li>
+    <li>Sanjeev Sharma, <em>The DevOps Adoption Playbook: A Guide to Adopting DevOps in a Multi-Speed IT Enterprise</em>, 1st Edition, Wiley, 2020.</li>
+    <li>Official Git Version Control Documentation — <a href="https://git-scm.com/doc">https://git-scm.com/doc</a></li>
+    <li>Official Jenkins CI/CD Documentation — <a href="https://www.jenkins.io/doc/book/pipeline/">https://www.jenkins.io/doc/book/pipeline/</a></li>
+    <li>Official Ansible Documentation (Roles, Handlers, and Playbooks) — <a href="https://docs.ansible.com/">https://docs.ansible.com/</a></li>
+    <li>Official Kubernetes Documentation (Deployments, Services, and Probes) — <a href="https://kubernetes.io/docs/">https://kubernetes.io/docs/</a></li>
+    <li>Flask Documentation &amp; Pytest Testing Framework — <a href="https://flask.palletsprojects.com/">https://flask.palletsprojects.com/</a></li>
+    <li>GitHub Actions Automation Documentation — <a href="https://docs.github.com/en/actions">https://docs.github.com/en/actions</a></li>
+    <li><strong>Project Repository (This Work):</strong> <a href="https://github.com/nagasathya10/devops-ci-cd-k8s-pipeline">https://github.com/nagasathya10/devops-ci-cd-k8s-pipeline</a></li>
+  </ol>
+
+  <div class="page-num">13</div>
+</div>
+
+</body>
+</html>
