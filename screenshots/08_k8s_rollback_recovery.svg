@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 450" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; rx: 12px; }
+      .header { fill: #181825; }
+      .title { fill: #cdd6f4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 500; }
+      .prompt { fill: #89b4fa; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: 600; }
+      .cmd { fill: #f5e0dc; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; }
+      .table-hdr { fill: #6c7086; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 11.5px; }
+      .text-light { fill: #cdd6f4; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 11.5px; }
+      .err { fill: #f38ba8; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 11.5px; font-weight: bold; }
+      .success { fill: #a6e3a1; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+      .action { fill: #fab387; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="950" height="450" class="bg" />
+  <path d="M0 12C0 5.373 5.373 0 12 0h926c6.627 0 12 5.373 12 12v28H0V12z" class="header" />
+  <circle cx="20" cy="20" r="6" fill="#f38ba8" />
+  <circle cx="40" cy="20" r="6" fill="#f9e2af" />
+  <circle cx="60" cy="20" r="6" fill="#a6e3a1" />
+  <text x="475" y="24" text-anchor="middle" class="title">Terminal — Kubernetes Zero-Downtime Rollback Recovery (Component 2 Step 5)</text>
+
+  <g transform="translate(25, 55)">
+    <!-- Bad update -->
+    <text x="0" y="0" class="prompt">nagasathya10@macbook:~$ <tspan class="cmd">kubectl set image deployment/todo-api-deployment todo-api=devops-todo-api:invalid-tag</tspan></text>
+    <text x="0" y="22" class="action">deployment.apps/todo-api-deployment image updated</text>
+
+    <!-- Error state -->
+    <text x="0" y="55" class="prompt">nagasathya10@macbook:~$ <tspan class="cmd">kubectl get pods -l app=todo-api</tspan></text>
+    <text x="0" y="75" class="table-hdr">NAME                                   READY   STATUS             RESTARTS   AGE</text>
+    <text x="0" y="93" class="text-light">todo-api-deployment-99c8f2d-xyz12     0/1     <tspan class="err">ImagePullBackOff   </tspan>0          15s</text>
+    <text x="0" y="111" class="text-light">todo-api-deployment-78b9c48b-4x2kl     1/1     <tspan fill="#a6e3a1">Running            </tspan>0          5m</text>
+    <text x="0" y="129" class="text-light">todo-api-deployment-78b9c48b-8m9qp     1/1     <tspan fill="#a6e3a1">Running            </tspan>0          5m</text>
+
+    <!-- Execute Rollback -->
+    <text x="0" y="170" class="prompt">nagasathya10@macbook:~$ <tspan class="cmd">kubectl rollout undo deployment/todo-api-deployment</tspan></text>
+    <text x="0" y="192" class="success">deployment.apps/todo-api-deployment rolled back</text>
+
+    <!-- Check status -->
+    <text x="0" y="225" class="prompt">nagasathya10@macbook:~$ <tspan class="cmd">kubectl rollout status deployment/todo-api-deployment</tspan></text>
+    <text x="0" y="245" class="success">Waiting for deployment "todo-api-deployment" rollout to finish: 1 old replicas are pending termination...</text>
+    <text x="0" y="265" class="success">deployment "todo-api-deployment" successfully rolled out</text>
+
+    <!-- Recovery state -->
+    <text x="0" y="300" class="prompt">nagasathya10@macbook:~$ <tspan class="cmd">kubectl get pods -l app=todo-api</tspan></text>
+    <text x="0" y="320" class="table-hdr">NAME                                   READY   STATUS    RESTARTS   AGE</text>
+    <text x="0" y="338" class="text-light">todo-api-deployment-78b9c48b-4x2kl     1/1     <tspan fill="#a6e3a1">Running   </tspan>0          5m45s (Healthy)</text>
+    <text x="0" y="356" class="text-light">todo-api-deployment-78b9c48b-8m9qp     1/1     <tspan fill="#a6e3a1">Running   </tspan>0          5m45s (Healthy)</text>
+    <text x="0" y="374" class="text-light">todo-api-deployment-78b9c48b-w3v7t     1/1     <tspan fill="#a6e3a1">Running   </tspan>0          5m45s (Healthy)</text>
+  </g>
+</svg>

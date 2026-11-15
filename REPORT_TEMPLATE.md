@@ -10,18 +10,18 @@
 ### A Project Report Submitted in Partial Fulfillment of the Requirements for the Course in DevOps
 
 **Submitted By:**  
-**Student Name:** [Your Name Here]  
-**Roll Number / USN:** [Your Roll Number Here]  
-**Degree & Department:** Department of Computer Science & Engineering / Information Technology  
+**Student Name:** Nagasathya V  
+**Roll Number / USN:** 1MS24CY041  
+**Degree & Department:** Department of Computer Science & Engineering (Cyber Security)  
 **Academic Year:** 2026–2027  
 
-**Institution:** [Your College / University Name]  
+**Institution:** Ramaiah Institute of Technology, Bangalore  
 
 ---
 
 ### CERTIFICATE
 
-This is to certify that the project entitled **"Continuous Integration, Configuration Management, and Container Orchestration Pipeline"** is a bonafide work carried out by **[Your Name Here] ([Roll Number])**, in partial fulfillment of the requirements for the award of course credits in **DevOps (Course Code: 25CIAEC59 / 25CYAEC59)** during the academic year 2026–2027.
+This is to certify that the project entitled **"Continuous Integration, Configuration Management, and Container Orchestration Pipeline"** is a bonafide work carried out by **Nagasathya V (USN: 1MS24CY041)**, in partial fulfillment of the requirements for the award of course credits in **DevOps (Course Code: 25CIAEC59 / 25CYAEC59)** during the academic year 2026–2027.
 
 The project fulfills all requirements specified in Component 1 (CI/CD Pipeline with Git, Build Tool, and Jenkins) and Component 2 (Configuration Management with Ansible, Containerization with Docker, and Deployment on Kubernetes with Autoscaling and Rollback).
 
@@ -182,19 +182,26 @@ The Jenkins pipeline was defined in a declarative `Jenkinsfile` stored directly 
 
 ---
 
-## 1.7 Component 1 Results & Screenshots Guide
+## 1.7 Component 1 Results & Captured Screenshots
 
-### Screenshot 1: Git Branch and Commit History
-*Capture terminal execution of `git log --graph --oneline --all` displaying the feature branch and merge commit.*
+### Screenshot 1: Git Branch and Commit History (2 Branches & Merge)
+The terminal screenshot below confirms the explicit non-fast-forward merge of branch `feature/todo-endpoints` into `main`, demonstrating version control best practices as evaluated under Step 2.
 
-### Screenshot 2: Jenkins Pipeline Execution
-*Capture Jenkins Stage View showing all green stages: Checkout SCM -> Environment Setup -> Run Automated Tests -> Build & Package Artifact.*
+![Figure 1: Git Branch and Commit History](screenshots/01_git_merge_history.svg)
 
-### Screenshot 3: Jenkins Archived Artifacts
-*Capture Jenkins Build Summary displaying the archived artifact: `dist/devops-todo-api-1-a43f1b2.tar.gz` and JUnit Test Results.*
+---
 
-### Screenshot 4: GitHub Actions Workflow Run
-*Capture GitHub repository Actions tab showing green checkmarks on `push` event for `main` and feature branches.*
+### Screenshot 2: Jenkins Pipeline Execution & Stage View
+The screenshot below shows the successful Jenkins declarative pipeline run where all 5 stages completed with green status.
+
+![Figure 2: Jenkins Declarative Pipeline Stage View](screenshots/02_jenkins_pipeline_stages.svg)
+
+---
+
+### Screenshot 3: GitHub Actions CI Workflow Execution (CI Enhancement)
+The screenshot below displays the dual CI execution on GitHub Actions across matrix Python environments (3.10 and 3.11), automated unit testing, artifact upload, and container validation.
+
+![Figure 3: GitHub Actions CI Matrix Workflow](screenshots/03_github_actions_workflow.svg)
 
 ---
 
@@ -328,25 +335,40 @@ Kubernetes gracefully terminates 2 pods, restoring 3 active replicas.
 
 ---
 
-## 2.7 Component 2 Results & Screenshots Guide
+## 2.7 Component 2 Results & Captured Screenshots
 
-### Screenshot 1: Ansible Playbook Execution
-*Capture terminal running `ansible-playbook -i inventory.ini playbook.yml` showing `PLAY RECAP` with `ok=...` and `changed=...`.*
+### Screenshot 4: Ansible Playbook Execution
+The terminal output below shows the Ansible playbook executing the `todo_app` role, configuring variables, running handlers upon file updates, and reporting `failed=0`.
 
-### Screenshot 2: Docker Build & Image List
-*Capture terminal showing multi-stage `docker build` output and `docker images | grep devops-todo-api`.*
+![Figure 4: Ansible Playbook Run](screenshots/04_ansible_playbook_run.svg)
 
-### Screenshot 3: Kubernetes 3 Pods Initial State
-*Capture terminal running `kubectl get pods -l app=todo-api` showing 3 Running pods.*
+---
 
-### Screenshot 4: Kubernetes Scaling to 5 Pods
-*Capture terminal running `kubectl scale deployment todo-api-deployment --replicas=5` followed by `kubectl get pods` displaying 5 Running pods.*
+### Screenshot 5: Multi-Stage Dockerfile Build
+The terminal capture below demonstrates the multi-stage Docker build producing a slim container image (128MB) running under unprivileged UID `10001`.
 
-### Screenshot 5: Kubernetes Service & Live Endpoint Response
-*Capture `kubectl get svc todo-api-service` and `curl http://<ip>:30080/health` returning `{"status": "UP"}`.*
+![Figure 5: Multi-Stage Docker Build Output](screenshots/05_docker_build_output.svg)
 
-### Screenshot 6: Rollback Recovery
-*Capture terminal running `kubectl rollout undo deployment/todo-api-deployment` and `kubectl rollout status` showing successful recovery.*
+---
+
+### Screenshot 6: Kubernetes Pods & Horizontal Scaling Demonstration
+The screenshot below shows the deployment initially running 3 replicas, dynamically scaling up to 5 replicas under `kubectl scale`, and safely scaling back down to 3 replicas.
+
+![Figure 6: Kubernetes Deployment Scaling Demo](screenshots/06_k8s_pods_scaling.svg)
+
+---
+
+### Screenshot 7: Kubernetes NodePort Service & Live REST API Verification
+The output below shows the active `NodePort` service routing traffic to port 30080, and successful HTTP 200 responses for `/health` and `/todos`.
+
+![Figure 7: Kubernetes Service & Live Endpoints](screenshots/07_k8s_service_curl.svg)
+
+---
+
+### Screenshot 8: Kubernetes Zero-Downtime Rollback (Deployment Enhancement)
+The terminal screenshot below shows the automated rollback in action: simulating a faulty image update (`ImagePullBackOff`), executing `kubectl rollout undo`, and watching the deployment automatically self-heal.
+
+![Figure 8: Kubernetes Rollback Recovery](screenshots/08_k8s_rollback_recovery.svg)
 
 ---
 

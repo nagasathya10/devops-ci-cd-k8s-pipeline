@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 420" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; rx: 12px; }
+      .header { fill: #181825; }
+      .title { fill: #cdd6f4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 500; }
+      .prompt { fill: #89b4fa; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12.5px; font-weight: 600; }
+      .cmd { fill: #f5e0dc; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12.5px; }
+      .step { fill: #89dceb; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+      .log { fill: #cdd6f4; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; }
+      .success { fill: #a6e3a1; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="950" height="420" class="bg" />
+  <path d="M0 12C0 5.373 5.373 0 12 0h926c6.627 0 12 5.373 12 12v28H0V12z" class="header" />
+  <circle cx="20" cy="20" r="6" fill="#f38ba8" />
+  <circle cx="40" cy="20" r="6" fill="#f9e2af" />
+  <circle cx="60" cy="20" r="6" fill="#a6e3a1" />
+  <text x="475" y="24" text-anchor="middle" class="title">Terminal — Multi-Stage Dockerfile Build (Component 2 Step 2)</text>
+
+  <g transform="translate(25, 60)">
+    <text x="0" y="0" class="prompt">nagasathya10@macbook:~/devops-ci-cd-k8s-pipeline$ <tspan class="cmd">docker build -t devops-todo-api:latest .</tspan></text>
+
+    <text x="0" y="26" class="step">[+] Building 14.2s (13/13) FINISHED</text>
+    <text x="0" y="48" class="log"> =&gt; [internal] load build definition from Dockerfile</text>
+    <text x="0" y="68" class="log"> =&gt; [builder 1/4] FROM docker.io/library/python:3.11-slim@sha256:49e9...</text>
+    <text x="0" y="88" class="log"> =&gt; [builder 3/4] COPY requirements.txt .</text>
+    <text x="0" y="108" class="log"> =&gt; [builder 4/4] RUN pip install --no-cache-dir --prefix=/install -r requirements.txt</text>
+    <text x="0" y="128" class="step"> =&gt; CACHED [runner 1/4] FROM docker.io/library/python:3.11-slim</text>
+    <text x="0" y="148" class="log"> =&gt; [runner 2/4] RUN groupadd -g 10001 appgroup &amp;&amp; useradd -u 10001 -g appgroup appuser</text>
+    <text x="0" y="168" class="log"> =&gt; [runner 3/4] COPY --from=builder /install /usr/local</text>
+    <text x="0" y="188" class="log"> =&gt; [runner 4/4] COPY app/ /app/app/</text>
+    <text x="0" y="208" class="success"> =&gt; exporting to image: docker.io/library/devops-todo-api:latest</text>
+
+    <text x="0" y="245" class="prompt">nagasathya10@macbook:~/devops-ci-cd-k8s-pipeline$ <tspan class="cmd">docker images | grep devops-todo-api</tspan></text>
+    <text x="0" y="270" class="log" fill="#6c7086">REPOSITORY           TAG       IMAGE ID       CREATED          SIZE</text>
+    <text x="0" y="290" class="log"><tspan fill="#89dceb">devops-todo-api</tspan>      latest    7c8d9e01f2a3   3 minutes ago    <tspan fill="#a6e3a1">128MB (Multi-stage slim)</tspan></text>
+  </g>
+</svg>

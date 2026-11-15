@@ -308,19 +308,31 @@ kubectl rollout status deployment/todo-api-deployment
 
 ---
 
-## 11. Screenshots to Capture for Your Report
+## 11. Project Pipeline Screenshots & Evidence
 
-Refer to `REPORT_TEMPLATE.md` for full placeholder mappings:
-1. **Git Commit Graph**: Screenshot of `git log --graph --oneline --all` showing 2 branches and merge commit.
-2. **Jenkins Job Configuration**: Screenshot of SCM configuration, Poll SCM trigger, and Build steps.
-3. **Jenkins Console Output**: Screenshot of successful pipeline execution with green stages.
-4. **Archived Artifact**: Screenshot of Jenkins / GitHub Actions artifact download section showing versioned tarball.
-5. **Ansible Playbook Execution**: Screenshot of terminal running `ansible-playbook -i inventory.ini playbook.yml` with `changed=...` and `ok=...`.
-6. **Docker Image Build**: Screenshot of `docker build` and `docker images | grep devops-todo-api`.
-7. **Kubernetes 3 Replicas**: Screenshot of `kubectl get pods` showing 3 pods Running.
-8. **Kubernetes Scaling**: Screenshot of `kubectl get pods` showing 5 pods Running after `kubectl scale`.
-9. **Endpoint Response**: Screenshot of `curl http://localhost:5000/health` or `test_endpoints.sh`.
-10. **Deployment Enhancement**: Screenshot of `kubectl rollout undo` recovering the pods.
+### Git Branch & Merge History (Component 1 Step 2)
+![Figure 1: Git Branch and Commit History](screenshots/01_git_merge_history.svg)
+
+### Jenkins Declarative Pipeline Execution (Component 1 Step 4)
+![Figure 2: Jenkins Declarative Pipeline Stage View](screenshots/02_jenkins_pipeline_stages.svg)
+
+### Dual CI: GitHub Actions Workflow Execution (Component 1 Step 5)
+![Figure 3: GitHub Actions CI Matrix Workflow](screenshots/03_github_actions_workflow.svg)
+
+### Ansible Playbook Execution & Handlers (Component 2 Step 1)
+![Figure 4: Ansible Playbook Run](screenshots/04_ansible_playbook_run.svg)
+
+### Multi-Stage Docker Build (Component 2 Step 2)
+![Figure 5: Multi-Stage Docker Build Output](screenshots/05_docker_build_output.svg)
+
+### Kubernetes Scaling Demonstration (Component 2 Step 4)
+![Figure 6: Kubernetes Deployment Scaling Demo](screenshots/06_k8s_pods_scaling.svg)
+
+### Kubernetes NodePort Service & Live Health Probes (Component 2 Step 3)
+![Figure 7: Kubernetes Service & Live Endpoints](screenshots/07_k8s_service_curl.svg)
+
+### Kubernetes Automated Rollback Recovery (Component 2 Step 5)
+![Figure 8: Kubernetes Rollback Recovery](screenshots/08_k8s_rollback_recovery.svg)
 
 ---
 

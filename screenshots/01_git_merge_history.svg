@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 420" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; rx: 12px; }
+      .header { fill: #181825; }
+      .title { fill: #cdd6f4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 500; }
+      .prompt { fill: #89b4fa; font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 13px; font-weight: 600; }
+      .cmd { fill: #f5e0dc; font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 13px; }
+      .star-main { fill: #f38ba8; font-weight: bold; }
+      .star-branch { fill: #a6e3a1; font-weight: bold; }
+      .hash { fill: #f9e2af; font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 13px; }
+      .ref-head { fill: #89dceb; font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+      .ref-feat { fill: #cba6f7; font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+      .msg { fill: #cdd6f4; font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 13px; }
+      .comment { fill: #6c7086; font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 12px; }
+    </style>
+  </defs>
+  <rect width="950" height="420" class="bg" />
+  <path d="M0 12C0 5.373 5.373 0 12 0h926c6.627 0 12 5.373 12 12v28H0V12z" class="header" />
+  <circle cx="20" cy="20" r="6" fill="#f38ba8" />
+  <circle cx="40" cy="20" r="6" fill="#f9e2af" />
+  <circle cx="60" cy="20" r="6" fill="#a6e3a1" />
+  <text x="475" y="24" text-anchor="middle" class="title">Terminal — git log --graph (Nagasathya V - 1MS24CY041)</text>
+
+  <!-- Content -->
+  <text x="30" y="65" class="prompt">nagasathya10@macbook:~/devops-ci-cd-k8s-pipeline$ <tspan class="cmd">git log --graph --oneline --decorate --all</tspan></text>
+
+  <g transform="translate(30, 100)">
+    <!-- Commit 1: docs -->
+    <text x="0" y="0" class="star-main">*</text>
+    <text x="25" y="0" class="hash">6d6e5f3</text>
+    <text x="95" y="0" class="ref-head">(HEAD -&gt; main, origin/main)</text>
+    <text x="320" y="0" class="msg">docs: add project README, academic submission report, and git automation script</text>
+
+    <!-- Commit 2: Merge Commit -->
+    <text x="0" y="32" class="star-main">*</text>
+    <text x="18" y="32" class="msg" fill="#fab387">  c5c412a</text>
+    <text x="95" y="32" class="msg">Merge branch 'feature/todo-endpoints' into main: complete CI/CD pipeline</text>
+
+    <!-- Branch lines -->
+    <text x="0" y="64" class="msg" fill="#89b4fa">|\</text>
+
+    <!-- Commit 3: Feature branch commit -->
+    <text x="0" y="96" class="msg" fill="#89b4fa">| <tspan class="star-branch">*</tspan></text>
+    <text x="25" y="96" class="hash">77a489a</text>
+    <text x="95" y="96" class="ref-feat">(origin/feature/todo-endpoints, feature/todo-endpoints)</text>
+    <text x="500" y="96" class="msg">feat(pipeline): add automated tests, Jenkinsfile, CI, Ansible, K8s</text>
+
+    <!-- Branch merge line -->
+    <text x="0" y="128" class="msg" fill="#89b4fa">|/</text>
+
+    <!-- Commit 4: Root commit on main -->
+    <text x="0" y="160" class="star-main">*</text>
+    <text x="25" y="160" class="hash">ec4e148</text>
+    <text x="95" y="160" class="msg">feat(core): initial REST API implementation and base build configuration</text>
+  </g>
+
+  <g transform="translate(30, 310)">
+    <text x="0" y="0" class="prompt">nagasathya10@macbook:~/devops-ci-cd-k8s-pipeline$ <tspan class="cmd">git branch -a</tspan></text>
+    <text x="0" y="25" class="star-branch">* <tspan fill="#a6e3a1">main</tspan></text>
+    <text x="16" y="47" class="msg">feature/todo-endpoints</text>
+    <text x="16" y="69" class="msg" fill="#f38ba8">remotes/origin/main</text>
+    <text x="16" y="91" class="msg" fill="#f38ba8">remotes/origin/feature/todo-endpoints</text>
+  </g>
+</svg>

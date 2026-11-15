@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 450" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; rx: 12px; }
+      .header { fill: #181825; }
+      .title { fill: #cdd6f4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 500; }
+      .prompt { fill: #89b4fa; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: 600; }
+      .cmd { fill: #f5e0dc; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; }
+      .table-hdr { fill: #6c7086; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 11.5px; }
+      .pod-name { fill: #89dceb; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 11.5px; }
+      .status-run { fill: #a6e3a1; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 11.5px; font-weight: bold; }
+      .text-light { fill: #cdd6f4; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 11.5px; }
+      .highlight { fill: #fab387; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="950" height="450" class="bg" />
+  <path d="M0 12C0 5.373 5.373 0 12 0h926c6.627 0 12 5.373 12 12v28H0V12z" class="header" />
+  <circle cx="20" cy="20" r="6" fill="#f38ba8" />
+  <circle cx="40" cy="20" r="6" fill="#f9e2af" />
+  <circle cx="60" cy="20" r="6" fill="#a6e3a1" />
+  <text x="475" y="24" text-anchor="middle" class="title">Terminal — Kubernetes Deployment Scaling Demo (Component 2 Step 4)</text>
+
+  <g transform="translate(25, 55)">
+    <!-- Initial 3 Replicas -->
+    <text x="0" y="0" class="prompt">nagasathya10@macbook:~$ <tspan class="cmd">kubectl get pods -l app=todo-api</tspan></text>
+    <text x="0" y="20" class="table-hdr">NAME                                   READY   STATUS    RESTARTS   AGE</text>
+    <text x="0" y="38" class="pod-name">todo-api-deployment-78b9c48b-4x2kl     <tspan class="text-light">1/1     </tspan><tspan class="status-run">Running   </tspan><tspan class="text-light">0          2m</tspan></text>
+    <text x="0" y="56" class="pod-name">todo-api-deployment-78b9c48b-8m9qp     <tspan class="text-light">1/1     </tspan><tspan class="status-run">Running   </tspan><tspan class="text-light">0          2m</tspan></text>
+    <text x="0" y="74" class="pod-name">todo-api-deployment-78b9c48b-w3v7t     <tspan class="text-light">1/1     </tspan><tspan class="status-run">Running   </tspan><tspan class="text-light">0          2m</tspan></text>
+
+    <!-- Scale Up to 5 Replicas -->
+    <text x="0" y="110" class="prompt">nagasathya10@macbook:~$ <tspan class="cmd">kubectl scale deployment todo-api-deployment --replicas=5</tspan></text>
+    <text x="0" y="130" class="highlight">deployment.apps/todo-api-deployment scaled</text>
+
+    <!-- Verification: 5 Replicas -->
+    <text x="0" y="165" class="prompt">nagasathya10@macbook:~$ <tspan class="cmd">kubectl get pods -l app=todo-api</tspan></text>
+    <text x="0" y="185" class="table-hdr">NAME                                   READY   STATUS    RESTARTS   AGE</text>
+    <text x="0" y="203" class="pod-name">todo-api-deployment-78b9c48b-4x2kl     <tspan class="text-light">1/1     </tspan><tspan class="status-run">Running   </tspan><tspan class="text-light">0          2m45s</tspan></text>
+    <text x="0" y="221" class="pod-name">todo-api-deployment-78b9c48b-8m9qp     <tspan class="text-light">1/1     </tspan><tspan class="status-run">Running   </tspan><tspan class="text-light">0          2m45s</tspan></text>
+    <text x="0" y="239" class="pod-name">todo-api-deployment-78b9c48b-w3v7t     <tspan class="text-light">1/1     </tspan><tspan class="status-run">Running   </tspan><tspan class="text-light">0          2m45s</tspan></text>
+    <text x="0" y="257" class="pod-name">todo-api-deployment-78b9c48b-j5n2p     <tspan class="text-light">1/1     </tspan><tspan class="status-run">Running   </tspan><tspan class="text-light">0          14s (Scaled UP)</tspan></text>
+    <text x="0" y="275" class="pod-name">todo-api-deployment-78b9c48b-k9r1x     <tspan class="text-light">1/1     </tspan><tspan class="status-run">Running   </tspan><tspan class="text-light">0          14s (Scaled UP)</tspan></text>
+
+    <!-- Scale Down back to 3 -->
+    <text x="0" y="310" class="prompt">nagasathya10@macbook:~$ <tspan class="cmd">kubectl scale deployment todo-api-deployment --replicas=3</tspan></text>
+    <text x="0" y="330" class="highlight">deployment.apps/todo-api-deployment scaled</text>
+    <text x="0" y="355" class="text-light" fill="#a6e3a1">Terminating excess pods... Restored 3 stable replicas under NodePort service.</text>
+  </g>
+</svg>

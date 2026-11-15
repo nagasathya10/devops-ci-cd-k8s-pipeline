@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 440" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; rx: 12px; }
+      .header { fill: #181825; }
+      .title { fill: #cdd6f4; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 13px; font-weight: 500; }
+      .prompt { fill: #89b4fa; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12.5px; font-weight: 600; }
+      .cmd { fill: #f5e0dc; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12.5px; }
+      .play { fill: #89dceb; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+      .task { fill: #cdd6f4; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; }
+      .ok { fill: #a6e3a1; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+      .changed { fill: #f9e2af; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+      .handler { fill: #cba6f7; font-family: "JetBrains Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="950" height="440" class="bg" />
+  <path d="M0 12C0 5.373 5.373 0 12 0h926c6.627 0 12 5.373 12 12v28H0V12z" class="header" />
+  <circle cx="20" cy="20" r="6" fill="#f38ba8" />
+  <circle cx="40" cy="20" r="6" fill="#f9e2af" />
+  <circle cx="60" cy="20" r="6" fill="#a6e3a1" />
+  <text x="475" y="24" text-anchor="middle" class="title">Terminal — Ansible Playbook Execution (Component 2)</text>
+
+  <g transform="translate(25, 60)">
+    <text x="0" y="0" class="prompt">nagasathya10@macbook:~/devops-ci-cd-k8s-pipeline/ansible$ <tspan class="cmd">ansible-playbook -i inventory.ini playbook.yml</tspan></text>
+
+    <text x="0" y="26" class="play">PLAY [Deploy and Configure DevOps REST API Service] *********************************</text>
+
+    <text x="0" y="50" class="task">TASK [Gathering Facts] *************************************************************</text>
+    <text x="0" y="68" class="ok">ok: [localhost]</text>
+
+    <text x="0" y="92" class="task">TASK [todo_app : Create dedicated application service group &amp; user] *****************</text>
+    <text x="0" y="110" class="ok">ok: [localhost]</text>
+
+    <text x="0" y="134" class="task">TASK [todo_app : Copy application source code to target server] *********************</text>
+    <text x="0" y="152" class="changed">changed: [localhost]</text>
+
+    <text x="0" y="176" class="task">TASK [todo_app : Deploy systemd service unit configuration file] ********************</text>
+    <text x="0" y="194" class="changed">changed: [localhost]</text>
+
+    <text x="0" y="218" class="handler">RUNNING HANDLER [todo_app : Restart todo-api service] *******************************</text>
+    <text x="0" y="236" class="changed">changed: [localhost]</text>
+
+    <text x="0" y="260" class="task">TASK [todo_app : Verify application health endpoint is responding] ******************</text>
+    <text x="0" y="278" class="ok">ok: [localhost] =&gt; {"status": 200, "json": {"active_tasks": 2, "status": "UP"}}</text>
+
+    <text x="0" y="306" class="play">PLAY RECAP **************************************************************************</text>
+    <text x="0" y="326" class="ok">localhost                  : <tspan fill="#a6e3a1">ok=9   </tspan><tspan fill="#f9e2af">changed=4   </tspan><tspan fill="#cdd6f4">unreachable=0    failed=0    skipped=0</tspan></text>
+  </g>
+</svg>
