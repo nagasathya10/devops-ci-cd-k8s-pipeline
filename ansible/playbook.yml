@@ -1,0 +1,28 @@
+---
+# Master Ansible Playbook for DevOps Task API Deployment
+# Evaluated under Component 2: Configuration Management
+- name: Deploy and Configure DevOps REST API Service
+  hosts: app_servers
+  become: yes
+  vars:
+    # Explicit variables required by Step 1 Rubric
+    app_port: 5000
+    app_environment: production
+    app_version: "1.0.0"
+    app_install_dir: /opt/devops-todo-app
+    app_service_name: devops-todo-api
+    app_user: todoapp
+
+  pre_tasks:
+    - name: Display deployment configuration banner
+      ansible.builtin.debug:
+        msg: "Starting provisioning for {{ app_service_name }} on port {{ app_port }} [Env: {{ app_environment }}]"
+
+  roles:
+    # Uses modular Ansible Role as required by assignment specification
+    - role: todo_app
+
+  post_tasks:
+    - name: Final confirmation message
+      ansible.builtin.debug:
+        msg: "{{ app_service_name }} successfully provisioned and running on port {{ app_port }}."

@@ -1,0 +1,10 @@
+DevOps Pipeline Assignment - Repository Details
+Course Code: 25CIAEC59/25CYAEC59
+
+GitHub Repository URL:
+https://github.com/nagasathya10/devops-ci-cd-k8s-pipeline
+
+Instructions:
+1. Repository is public and ready for evaluation.
+2. Contains all project files, Jenkinsfile, Ansible playbook, Dockerfile, and Kubernetes YAMLs.
+3. Git history demonstrates 2 branches (main, feature/todo-endpoints) and an explicit merge commit.

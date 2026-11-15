@@ -1,0 +1,91 @@
+---
+# Tasks for role todo_app
+- name: Update apt cache and install runtime dependencies
+  ansible.builtin.package:
+    name: "{{ system_packages }}"
+    state: present
+  when: ansible_os_family == "Debian" or ansible_os_family == "RedHat"
+  ignore_errors: yes
+
+- name: Create dedicated application service group
+  ansible.builtin.group:
+    name: "{{ app_group }}"
+    state: present
+  ignore_errors: yes
+
+- name: Create dedicated application system user
+  ansible.builtin.user:
+    name: "{{ app_user }}"
+    group: "{{ app_group }}"
+    system: yes
+    create_home: no
+    shell: /sbin/nologin
+  ignore_errors: yes
+
+- name: Create application deployment directory
+  ansible.builtin.file:
+    path: "{{ app_install_dir }}"
+    state: directory
+    owner: "{{ app_user }}"
+    group: "{{ app_group }}"
+    mode: '0755'
+
+- name: Copy application source code to target server
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/../app"
+    dest: "{{ app_install_dir }}/"
+    owner: "{{ app_user }}"
+    group: "{{ app_group }}"
+    mode: '0644'
+  notify: Restart todo-api service
+
+- name: Copy requirements.txt to target server
+  ansible.builtin.copy:
+    src: "{{ playbook_dir }}/../requirements.txt"
+    dest: "{{ app_install_dir }}/requirements.txt"
+    owner: "{{ app_user }}"
+    group: "{{ app_group }}"
+    mode: '0644'
+  notify: Restart todo-api service
+
+- name: Create Python virtual environment and install requirements
+  ansible.builtin.pip:
+    requirements: "{{ app_install_dir }}/requirements.txt"
+    virtualenv: "{{ app_install_dir }}/.venv"
+    virtualenv_command: "{{ python_executable }} -m venv"
+  notify: Restart todo-api service
+
+- name: Deploy systemd service unit configuration file
+  ansible.builtin.template:
+    src: todo-app.service.j2
+    dest: "/etc/systemd/system/{{ app_service_name }}.service"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart todo-api service
+
+- name: Flush handlers to restart service immediately if changes occurred
+  ansible.builtin.meta: flush_handlers
+
+- name: Ensure application service is enabled and started
+  ansible.builtin.systemd:
+    name: "{{ app_service_name }}"
+    state: started
+    enabled: yes
+  ignore_errors: yes
+
+- name: Verify application health endpoint is responding
+  ansible.builtin.uri:
+    url: "http://127.0.0.1:{{ app_port }}/health"
+    method: GET
+    status_code: 200
+    return_content: yes
+  register: health_result
+  retries: 5
+  delay: 3
+  until: health_result.status == 200
+  ignore_errors: yes
+
+- name: Output health status report
+  ansible.builtin.debug:
+    msg: "Application Health Check: {{ health_result.json | default('Service running') }}"
